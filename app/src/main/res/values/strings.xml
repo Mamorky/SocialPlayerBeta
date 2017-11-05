@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SocialPlayer</string>
+    <string name="searchButton">Buscar</string>
 </resources>

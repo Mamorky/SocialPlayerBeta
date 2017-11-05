@@ -53,7 +53,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
 
         songHolder.song.setText(getItem(position).getName());
         songHolder.artist.setText(getItem(position).getArtists());
-        songHolder.imagen.setImageResource(R.drawable.shape_album);
+        songHolder.imagen.setImageResource(getItem(position).getImageAlbum());
 
         return view;
     }

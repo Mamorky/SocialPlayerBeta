@@ -10,10 +10,22 @@ import java.util.List;
  * Created by mamorky on 30/10/17.
  */
 
+/**
+ * Creación de la clase pojo con los datos */
 public class Song {
     private String Name;
     private String Album;
     private String Artists;
+
+    private int ImageAlbum;
+
+    public int getImageAlbum() {
+        return ImageAlbum;
+    }
+
+    public void setImageAlbum(int imageAlbum) {
+        ImageAlbum = imageAlbum;
+    }
 
     public String getArtists() {
         return Artists;
@@ -37,14 +49,14 @@ public class Song {
     private int IdArtists;
     private Image cover;
 
-    public Song(String name, String album, String artists, int idSong, int idAlbum, int idArtists) {
+    public Song(String name, String album, String artists, int imageAlbum, int idSong, int idAlbum, int idArtists) {
         Name = name;
         Album = album;
         Artists = artists;
+        ImageAlbum = imageAlbum;
         IdSong = idSong;
         IdAlbum = idAlbum;
         IdArtists = idArtists;
-        this.cover = cover;
     }
 
     public String getName() {
