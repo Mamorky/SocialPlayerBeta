@@ -12,12 +12,8 @@ import android.widget.TextView;
 
 import com.example.mamorky.socialplayer.R;
 
-import org.w3c.dom.Text;
-
-import java.util.List;
-
-import pojo.Song;
-import repositories.SongRepository;
+import com.example.mamorky.socialplayer.data.db.pojo.Song;
+import com.example.mamorky.socialplayer.data.db.repositories.SongRepository;
 
 /**
  * Created by mamorky on 30/10/17.

@@ -1,6 +1,7 @@
 package adapter;
 
 import android.content.Context;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,8 @@ import com.example.mamorky.socialplayer.R;
 
 import java.util.ArrayList;
 
-import pojo.Album;
+import com.example.mamorky.socialplayer.data.db.pojo.Album;
+import com.example.mamorky.socialplayer.util.UtilsImages;
 
 /**
  * Created by mamorky on 5/11/17.
@@ -22,7 +24,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
 
     private ArrayList<Album> albums;
 
-    public AlbumAdapter(ArrayList<Album>albums){
+    public AlbumAdapter(ArrayList<Album> albums){
         this.albums = albums;
     }
 
@@ -36,7 +38,10 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
 
     @Override
     public void onBindViewHolder(AlbumViewHolder holder, int position) {
-        holder.albumImage.setImageResource(albums.get(position).getAlbumImage());
+
+        RoundedBitmapDrawable imagenRound = UtilsImages.roundImages(holder.albumImage,albums.get(position).getAlbumImage(),200);
+
+        holder.albumImage.setImageDrawable(imagenRound);
         holder.albumName.setText(albums.get(position).getAlbumName());
         holder.albumArtist.setText(albums.get(position).getAlbumArtist());
     }
