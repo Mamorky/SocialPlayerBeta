@@ -1,10 +1,9 @@
 package repositories;
 
+import pojo.Album;
 import com.example.mamorky.socialplayer.R;
 
 import java.util.ArrayList;
-
-import pojo.Album;
 
 /**
  * Created by mamorky on 5/11/17.
@@ -20,10 +19,10 @@ public class AlbumRepository {
 
     public AlbumRepository(){
         this.albums = new ArrayList<>();
-        Inicialize();
+        inicialize();
     }
 
-    public void Inicialize(){
+    public void inicialize(){
         for (int i = 0;i < 10;i++){
             albums.add(new Album("The best Album", R.drawable.album1,"Oliver Heldeens"));
             albums.add(new Album("One day for your turn", R.drawable.album2,"Mike Williams"));

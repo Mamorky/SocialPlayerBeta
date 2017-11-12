@@ -1,4 +1,4 @@
-package com.example.mamorky.socialplayer;
+package com.example.mamorky.socialplayer.Song;
 
 import android.app.ListActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -9,27 +9,27 @@ import android.widget.ArrayAdapter;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 
+import com.example.mamorky.socialplayer.R;
+
 import adapter.SongAdapter;
 import pojo.Song;
 
-public class SongActivity extends AppCompatActivity {
+public class SongViewImp extends AppCompatActivity implements SongView{
 
     private ListView listView;
     private SongAdapter songAdapter;
+    private SongPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song);
-
         listView = (ListView) findViewById(R.id.listView);
-
-        songAdapter = new SongAdapter(this);
-
-        listView.setAdapter(songAdapter);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        presenter = new SongPresenterImp(this);
+        presenter.CreateAdapter(this);
     }
 
     @Override
@@ -37,5 +37,10 @@ public class SongActivity extends AppCompatActivity {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.activity_menu_song,menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void showAdapter(SongAdapter songAdapter) {
+        listView.setAdapter(songAdapter);
     }
 }

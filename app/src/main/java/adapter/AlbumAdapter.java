@@ -1,7 +1,6 @@
 package adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,6 @@ import com.example.mamorky.socialplayer.R;
 import java.util.ArrayList;
 
 import pojo.Album;
-import repositories.AlbumRepository;
 
 /**
  * Created by mamorky on 5/11/17.
@@ -24,8 +22,8 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
 
     private ArrayList<Album> albums;
 
-    public AlbumAdapter(){
-        this.albums = AlbumRepository.getInstance().getAlbums();
+    public AlbumAdapter(ArrayList<Album>albums){
+        this.albums = albums;
     }
 
     @Override
