@@ -4,6 +4,8 @@ import com.example.mamorky.socialplayer.data.db.pojo.Album;
 import com.example.mamorky.socialplayer.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by mamorky on 5/11/17.
@@ -35,6 +37,7 @@ public class AlbumRepository {
     }
 
     public ArrayList<Album> getAlbums(){
+        Collections.sort(albums);
         return albums;
     }
 

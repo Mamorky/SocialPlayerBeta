@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  * Clase que de estructura de un Album*/
-public class Album {
+public class Album implements Comparable{
     private ArrayList<Song> songs;
     private String albumName;
     private int albumImage;
@@ -61,5 +61,10 @@ public class Album {
 
     public void setAlbumImage(int albumImage) {
         this.albumImage = albumImage;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return albumName.compareTo(((Album)o).getAlbumName());
     }
 }

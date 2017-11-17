@@ -1,6 +1,7 @@
 package com.example.mamorky.socialplayer.data.db.pojo;
 
 import android.media.Image;
+import android.support.annotation.NonNull;
 
 /**
  * Created by mamorky on 30/10/17.
@@ -8,10 +9,10 @@ import android.media.Image;
 
 /**
  * Creación de la clase com.example.mamorky.socialplayer.data.db.pojo con los datos */
-public class Song {
-    private String Name;
-    private String Album;
-    private String Artists;
+public class Song implements Comparable{
+    private String _name;
+    private String _album;
+    private String _artist;
 
     private int ImageAlbum;
 
@@ -23,8 +24,8 @@ public class Song {
         ImageAlbum = imageAlbum;
     }
 
-    public String getArtists() {
-        return Artists;
+    public String get_artist() {
+        return _artist;
     }
 
     public int getIdArtists() {
@@ -34,8 +35,8 @@ public class Song {
     private int IdSong;
     private int IdAlbum;
 
-    public void setArtists(String artists) {
-        Artists = artists;
+    public void set_artist(String _artist) {
+        this._artist = _artist;
     }
 
     public void setIdArtists(int idArtists) {
@@ -46,29 +47,29 @@ public class Song {
     private Image cover;
 
     public Song(String name, String album, String artists, int imageAlbum, int idSong, int idAlbum, int idArtists) {
-        Name = name;
-        Album = album;
-        Artists = artists;
+        _name = name;
+        _album = album;
+        _artist = artists;
         ImageAlbum = imageAlbum;
         IdSong = idSong;
         IdAlbum = idAlbum;
         IdArtists = idArtists;
     }
 
-    public String getName() {
-        return Name;
+    public String get_name() {
+        return _name;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void set_name(String _name) {
+        this._name = _name;
     }
 
-    public String getAlbum() {
-        return Album;
+    public String get_album() {
+        return _album;
     }
 
-    public void setAlbum(String album) {
-        Album = album;
+    public void set_album(String _album) {
+        this._album = _album;
     }
 
     public int getIdSong() {
@@ -98,9 +99,14 @@ public class Song {
     @Override
     public String toString() {
         return "Song{" +
-                "Name='" + Name + '\'' +
-                ", Album='" + Album + '\'' +
-                ", Artists=" + Artists +
+                "_name='" + _name + '\'' +
+                ", _album='" + _album + '\'' +
+                ", _artist=" + _artist +
                 '}';
+    }
+
+    @Override
+    public int compareTo(@NonNull Object o) {
+        return _name.compareTo(((Song)o).get_name());
     }
 }

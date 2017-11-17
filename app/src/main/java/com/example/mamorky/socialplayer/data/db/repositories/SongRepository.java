@@ -3,6 +3,7 @@ package com.example.mamorky.socialplayer.data.db.repositories;
 import com.example.mamorky.socialplayer.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
 
@@ -40,6 +41,7 @@ public class SongRepository {
     }
 
     public ArrayList<Song> getSongs(){
+        Collections.sort(songs);
         return songs;
     }
 }

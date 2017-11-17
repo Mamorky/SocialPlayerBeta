@@ -47,8 +47,8 @@ public class SongAdapter extends ArrayAdapter<Song> {
             songHolder = (SongHolder)view.getTag();
         }
 
-        songHolder.song.setText(getItem(position).getName());
-        songHolder.artist.setText(getItem(position).getArtists());
+        songHolder.song.setText(getItem(position).get_name());
+        songHolder.artist.setText(getItem(position).get_artist());
         songHolder.imagen.setImageResource(getItem(position).getImageAlbum());
 
         return view;
