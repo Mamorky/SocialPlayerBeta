@@ -26,7 +26,7 @@ public class AboutActivity extends AppCompatActivity {
                 .setName(R.string.developerName)
                 .setSubTitle("Mobile Developer")
                 .setBrief("I'm warmed of mobile technologies. Ideas maker, curious and nature lover.")
-                .setAppIcon(R.mipmap.ic_launcher)
+                .setAppIcon(R.drawable.logo_app)
                 .setAppName(R.string.app_name)
                 .addGooglePlayStoreLink("8002078663318221363")
                 .addGitHubLink("mamorky")

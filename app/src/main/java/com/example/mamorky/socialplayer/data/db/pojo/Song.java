@@ -3,6 +3,8 @@ package com.example.mamorky.socialplayer.data.db.pojo;
 import android.media.Image;
 import android.support.annotation.NonNull;
 
+import java.util.Comparator;
+
 /**
  * Created by mamorky on 30/10/17.
  */
@@ -108,5 +110,30 @@ public class Song implements Comparable{
     @Override
     public int compareTo(@NonNull Object o) {
         return _name.compareTo(((Song)o).get_name());
+    }
+
+
+    public static class SongCompareById implements Comparator<Song> {
+
+        @Override
+        public int compare(Song s1, Song s2) {
+            return Integer.compare(s1.getIdSong(),s2.getIdSong());
+        }
+    }
+
+    public static class SongCompareByIdArtitst implements Comparator<Song> {
+
+        @Override
+        public int compare(Song s1, Song s2) {
+            return Integer.compare(s1.getIdArtists(),s2.getIdArtists());
+        }
+    }
+
+    public static class SongCompareByIdAlbum implements Comparator<Song> {
+
+        @Override
+        public int compare(Song s1, Song s2) {
+            return Integer.compare(s1.getIdAlbum(),s2.getIdAlbum());
+        }
     }
 }

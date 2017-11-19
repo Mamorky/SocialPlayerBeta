@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llyLoginPrincipal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.mamorky.socialplayer.ui.Login.LoginViewImp"
+    android:padding="@dimen/llyPrincipalPadding"
+    android:background="@color/colorLoginBackground">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Social Player"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@android:color/white" />
+
+    <ImageView
+            android:id="@+id/imgLogoLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/logo_app" />
+
+    <TextView
+        android:id="@+id/txvUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txvUser"
+        android:layout_marginTop="@dimen/txvSignInMargin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:id="@+id/edtUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/edtUserMargin"
+        android:background="@drawable/borderedittext"
+        android:padding="@dimen/editTextPadding"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/txvPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txvPassword"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
+        android:backgroundTint="@android:color/darker_gray"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:id="@+id/edtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/edtPasswordMargin"
+        android:background="@drawable/borderedittext"
+        android:padding="@dimen/editTextPadding"
+        android:inputType="textPassword" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/llyRememberMargin">
+
+        <CheckBox
+            android:id="@+id/chkRememberme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:text="@string/chkRemember"
+            android:textColor="@android:color/white"
+            android:textColorLink="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/txvSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/txvSignUp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/btnSignInMargin"
+        android:background="@color/colorPrimary"
+        android:text="@string/btnSignIn"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+        android:padding="@dimen/btnGeneralPadding"/>
+
+    <Button
+        android:id="@+id/btnGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/btnGoogleMargin"
+        android:background="@color/btnGoogle"
+        android:text="@string/btnGoogle"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+        android:padding="@dimen/btnGeneralPadding"/>
+
+</LinearLayout>

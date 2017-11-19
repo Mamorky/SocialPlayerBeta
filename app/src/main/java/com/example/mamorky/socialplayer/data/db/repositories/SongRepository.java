@@ -4,6 +4,7 @@ import com.example.mamorky.socialplayer.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
 
@@ -44,4 +45,19 @@ public class SongRepository {
         Collections.sort(songs);
         return songs;
     }
-}
+
+    public ArrayList<Song> getSongs(String ordenarPor){
+        if(ordenarPor == "id"){
+            Collections.sort(songs, new Song.SongCompareById());
+            return songs;
+        }
+        if (ordenarPor == "artist"){
+            Collections.sort(songs, new Song.SongCompareByIdArtitst());
+            return songs;
+        }
+        if(ordenarPor == "album"){
+            Collections.sort(songs, new Song.SongCompareByIdAlbum());
+            return songs;
+        }
+        return getSongs();}
+    }

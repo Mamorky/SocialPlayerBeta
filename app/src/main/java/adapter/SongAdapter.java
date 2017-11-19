@@ -25,6 +25,10 @@ public class SongAdapter extends ArrayAdapter<Song> {
         super(context, R.layout.item_song, SongRepository.getInstance().getSongs());
     }
 
+    public SongAdapter(@NonNull Context context,String ordenarPor) {
+        super(context, R.layout.item_song, SongRepository.getInstance().getSongs(ordenarPor));
+    }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

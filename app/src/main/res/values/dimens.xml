@@ -5,4 +5,20 @@
     <dimen name="paddingAlbumButton">16dp</dimen>
     <dimen name="paddingAlbumLateral">8dp</dimen>
     <dimen name="paddingArtistButton">16dp</dimen>
+    <dimen name="llyPrincipalPadding">35dp</dimen>
+    <dimen name="txvSignInMargin">25dp</dimen>
+    <dimen name="edtUserMargin">25dp</dimen>
+    <dimen name="edtPasswordMargin">8dp</dimen>
+    <dimen name="llyRememberMargin">8dp</dimen>
+    <dimen name="btnSignInMargin">25dp</dimen>
+    <dimen name="btnGoogleMargin">9dp</dimen>
+    <dimen name="txvAlbumMargin">25dp</dimen>
+    <dimen name="imgDashBoard">0dp</dimen>
+    <dimen name="imgIconSize">60dp</dimen>
+    <dimen name="imgIconMargin">8dp</dimen>
+    <dimen name="imgIconPadding">8dp</dimen>
+    <dimen name="editTextPadding">5dp</dimen>
+    <dimen name="marginBottomAppNameLogin">10dp</dimen>
+    <dimen name="constraintPaddingItemSong">8dp</dimen>
+    <dimen name="btnGeneralPadding">8dp</dimen>
 </resources>

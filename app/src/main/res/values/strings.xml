@@ -2,4 +2,23 @@
     <string name="app_name">SocialPlayer</string>
     <string name="searchButton">Buscar</string>
     <string name="developerName">Mamorky</string>
+    <string name="activity_name_canciones">Canciones</string>
+    <string name="order_name_song">Ordenar por nombre</string>
+    <string name="order_id_song">Ordenar por id canción</string>
+    <string name="order_album">Ordenar por id album</string>
+    <string name="order_artist">Ordenar por id artist</string>
+    <string name="txvSignIn">Acceder</string>
+    <string name="txvUser">Usuario/Correo</string>
+    <string name="txvPassword">Contraseña</string>
+    <string name="chkRemember">Recuerdame</string>
+    <string name="txvSignUp"><u>Registrarse</u></string>
+    <string name="btnSignIn">Iniciar Sesión</string>
+    <string name="btnGoogle">Google</string>
+    <string name="btnFacebook">Facebook</string>
+    <string name="user">Pepe</string>
+    <string name="contrasenia">12345678</string>
+    <string name="txvAlbum"> ... Albums</string>
+    <string name="appNameLogin">Social Player</string>
+    <string name="activity_name_artist">Artistas</string>
+    <string name="activity_name_albums">Albums</string>
 </resources>

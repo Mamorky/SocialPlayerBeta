@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="errorPasswordEmpty">Error password Vacia</string>
+    <string name="errorUsuarioEmpty">Error usuario Vacio</string>
+    <string name="errorPasswordLenght">Error longitud contraseña</string>
+    <string name="errorIncorrectUserPass">Usuario o contraseña incorrecto</string>
+</resources>

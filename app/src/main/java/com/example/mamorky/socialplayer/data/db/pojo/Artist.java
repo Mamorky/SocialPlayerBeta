@@ -2,6 +2,8 @@ package com.example.mamorky.socialplayer.data.db.pojo;
 
 import android.support.annotation.NonNull;
 
+import java.util.Comparator;
+
 /**
  * Created by mamorky on 6/11/17.
  */

@@ -3,8 +3,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:ignore="ExtraText">
-    <item android:id="@+id/search_button"
-        android:icon="@drawable/ic_search_black_24dp"
+    <item android:id="@+id/btnBuscarMenu"
+        android:icon="@drawable/loop"
         android:title="@string/searchButton"
         app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_settings_order_name_song"
+        android:title="@string/order_name_song"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_settings_order_id_song"
+        android:title="@string/order_id_song"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_settings_order_id_album"
+        android:title="@string/order_album"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_settings_order_id_artist"
+        android:title="@string/order_artist"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
 </menu>
