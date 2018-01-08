@@ -1,55 +1,75 @@
 package com.example.mamorky.socialplayer.ui.Artist;
 
+import android.app.Fragment;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.mamorky.socialplayer.R;
+import com.example.mamorky.socialplayer.ui.PrincipalActivity;
 import com.example.mamorky.socialplayer.ui.Song.SongViewImp;
 
 import adapter.ArtistAdapter;
 
-public class ArtistViewImp extends AppCompatActivity implements ArtistView{
+public class ArtistViewImp extends Fragment implements ArtistView{
 
     private RecyclerView recyclerView;
     private ArtistAdapter artistAdapter;
     private ArtistPresenter presenter;
+    private FrameLayout frameLayout;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_artist);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View viewRoot = inflater.inflate(R.layout.activity_artist,container,false);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarArtist);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(R.string.activity_name_artist);
+        Toolbar toolbar = (Toolbar) viewRoot.findViewById(R.id.toolbarArtist);
+        toolbar.inflateMenu(R.menu.activity_menu_general);
+        toolbar.setTitle(R.string.activity_name_artist);
 
-        recyclerView = (RecyclerView)findViewById(R.id.recylcerArtist);
+        recyclerView = (RecyclerView)viewRoot.findViewById(R.id.recylcerArtist);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
 
-        presenter = new ArtistPresenterImp(this);
-        presenter.createAdapter();
+        if(getResources().getConfiguration().orientation == getResources().getConfiguration().ORIENTATION_LANDSCAPE)
+            recyclerView.setLayoutManager(new GridLayoutManager(container.getContext(),3));
+        else
+            recyclerView.setLayoutManager(new GridLayoutManager(container.getContext(),2));
+
+        return viewRoot;
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        presenter = new ArtistPresenterImp(this);
+        presenter.createAdapter();
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        MenuInflater menuInflater = inflater;
         menuInflater.inflate(R.menu.activity_menu_general,menu);
-        return super.onCreateOptionsMenu(menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.btnBuscarMenu:
-                Toast.makeText(ArtistViewImp.this,"Buscar Artista",Toast.LENGTH_LONG).show();
+                Toast.makeText(frameLayout.getContext(),"Buscar Artista",Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

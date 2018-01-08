@@ -2,6 +2,11 @@ package com.example.mamorky.socialplayer.ui.Song;
 
 import android.content.Context;
 
+import com.example.mamorky.socialplayer.data.db.pojo.Song;
+import com.example.mamorky.socialplayer.data.db.repositories.SongRepository;
+
+import java.util.ArrayList;
+
 import adapter.SongAdapter;
 
 /**
@@ -18,8 +23,12 @@ public class SongInteractorImp implements SongInteractor{
     }
 
     @Override
-    public void CreateAdapter(Context context) {
-        adapter = new SongAdapter(context);
-        presenter.showAdapter(adapter);
+    public void loadSongs(onLoadSuccess onLoadSuccess) {
+        ArrayList<Song> songs = SongRepository.getInstance().getSongs();
+        onLoadSuccess.onLoadSuccess(songs);
+    }
+
+    @Override
+    public void deleteArticulo(Song song) {
     }
 }

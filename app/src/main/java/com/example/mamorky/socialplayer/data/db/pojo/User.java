@@ -4,7 +4,7 @@ package com.example.mamorky.socialplayer.data.db.pojo;
  * Created by mamorky on 8/11/17.
  */
 
-public class        User {
+public class User {
     private int id;
     private String user;
     private String password;

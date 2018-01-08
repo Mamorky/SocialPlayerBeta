@@ -1,15 +1,13 @@
 package com.example.mamorky.socialplayer.ui.Login;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.mamorky.socialplayer.R;
-import com.example.mamorky.socialplayer.ui.MenuPrincipal;
+import com.example.mamorky.socialplayer.ui.PrincipalActivity;
 import com.example.mamorky.socialplayer.ui.base.BaseActivity;
 
 public class LoginViewImp extends BaseActivity implements LoginView {
@@ -48,7 +46,7 @@ public class LoginViewImp extends BaseActivity implements LoginView {
 
     @Override
     public void navigateToHome() {
-        Intent i = new Intent(LoginViewImp.this,MenuPrincipal.class);
+        Intent i = new Intent(LoginViewImp.this,PrincipalActivity.class);
         startActivity(i);
     }
 

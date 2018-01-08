@@ -2,13 +2,18 @@ package com.example.mamorky.socialplayer.ui.Song;
 
 import android.content.Context;
 
+import com.example.mamorky.socialplayer.data.db.pojo.Song;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+
 import adapter.SongAdapter;
 
 /**
  * Created by mamorky on 12/11/17.
  */
 
-public class SongPresenterImp implements SongPresenter{
+public class SongPresenterImp implements SongPresenter,SongInteractor.onLoadSuccess{
 
     private SongView songView;
     private SongInteractor interactor;
@@ -19,14 +24,22 @@ public class SongPresenterImp implements SongPresenter{
     }
 
     @Override
-    public void CreateAdapter(Context context) {
-        if(interactor != null)
-            interactor.CreateAdapter(context);
+    public void loadSong() {
+        interactor.loadSongs(this);
     }
 
     @Override
-    public void showAdapter(SongAdapter songAdapter) {
-        if(songView != null)
-            songView.showAdapter(songAdapter);
+    public void deleteArticulo(Song song) {
+        interactor.deleteArticulo(song);
+    }
+
+    @Override
+    public void orderArticulos(Comparator<Song> comparator, SongAdapter adapter) {
+        adapter.sort(comparator);
+    }
+
+    @Override
+    public void onLoadSuccess(ArrayList<Song> songs) {
+        songView.onLoadSuccess(songs);
     }
 }

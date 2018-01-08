@@ -15,18 +15,16 @@ import com.example.mamorky.socialplayer.R;
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
 import com.example.mamorky.socialplayer.data.db.repositories.SongRepository;
 
+import java.util.ArrayList;
+
 /**
  * Created by mamorky on 30/10/17.
  */
 
 public class SongAdapter extends ArrayAdapter<Song> {
 
-    public SongAdapter(@NonNull Context context) {
-        super(context, R.layout.item_song, SongRepository.getInstance().getSongs());
-    }
-
     public SongAdapter(@NonNull Context context,String ordenarPor) {
-        super(context, R.layout.item_song, SongRepository.getInstance().getSongs(ordenarPor));
+        super(context, R.layout.item_song, new ArrayList<Song>());
     }
 
     @NonNull

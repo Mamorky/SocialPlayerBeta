@@ -2,6 +2,10 @@ package com.example.mamorky.socialplayer.ui.Song;
 
 import android.content.Context;
 
+import com.example.mamorky.socialplayer.data.db.pojo.Song;
+
+import java.util.Comparator;
+
 import adapter.SongAdapter;
 
 /**
@@ -9,6 +13,7 @@ import adapter.SongAdapter;
  */
 
 public interface SongPresenter {
-    public void CreateAdapter(Context context);
-    public void showAdapter(SongAdapter songAdapter);
+    void loadSong();
+    void deleteArticulo(Song song);
+    void orderArticulos(Comparator<Song> comparator, SongAdapter adapter);
 }

@@ -1,83 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:orientation="vertical">
+    android:layout_gravity="center">
 
-    <ImageView
-        android:id="@+id/imgAlbumMenu"
-        android:layout_width="@dimen/sizeAlbumImage"
-        android:layout_height="@dimen/sizeAlbumImage"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgSongMenu"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgArtistMenu"
-        app:layout_constraintVertical_bias="0.188"
-        app:srcCompat="@drawable/multimedia" />
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation"
+        android:fitsSystemWindows="true">
 
-    <ImageView
-        android:id="@+id/imgArtistMenu"
-        android:layout_width="@dimen/sizeAlbumImage"
-        android:layout_height="@dimen/sizeAlbumImage"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/imgAlbumMenu"
-        app:layout_constraintEnd_toStartOf="@+id/imgAcercaDe"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.9"
-        app:srcCompat="@drawable/artist" />
+        <FrameLayout
+            android:id="@+id/main_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <!--    Fila 2  -->
-    <ImageView
-        android:id="@+id/imgSongMenu"
-        android:layout_width="@dimen/sizeAlbumImage"
-        android:layout_height="@dimen/sizeAlbumImage"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgAlbumMenu"
-        app:layout_constraintTop_toBottomOf="@+id/imgAcercaDe"
-        app:srcCompat="@drawable/song" />
+    </android.support.design.widget.CoordinatorLayout>
 
-    <ImageView
-        android:id="@+id/imgAcercaDe"
-        android:layout_width="@dimen/sizeAlbumImage"
-        android:layout_height="@dimen/sizeAlbumImage"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/imgSongMenu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgArtistMenu"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/acercade" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Menu Principal"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.050000012"
-        android:textSize="48sp"/>
-    <!-- Fin Fila 2 -->
-</android.support.constraint.ConstraintLayout>
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        app:itemIconTint="@drawable/nav_item_color_state"
+        app:itemTextColor="@drawable/nav_item_color_state"
+        app:menu="@menu/bottom_navigation_main" />
+</RelativeLayout>

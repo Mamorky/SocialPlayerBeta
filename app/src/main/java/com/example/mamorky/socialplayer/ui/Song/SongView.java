@@ -1,5 +1,9 @@
 package com.example.mamorky.socialplayer.ui.Song;
 
+import com.example.mamorky.socialplayer.data.db.pojo.Song;
+
+import java.util.ArrayList;
+
 import adapter.SongAdapter;
 
 /**
@@ -7,5 +11,5 @@ import adapter.SongAdapter;
  */
 
 public interface SongView {
-    public void showAdapter(SongAdapter songAdapter);
+    void onLoadSuccess(ArrayList<Song> songs);
 }
