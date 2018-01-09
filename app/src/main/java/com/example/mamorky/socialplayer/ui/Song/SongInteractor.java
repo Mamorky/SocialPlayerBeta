@@ -12,8 +12,11 @@ import java.util.ArrayList;
 
 public interface SongInteractor{
         void loadSongs(onLoadSuccess onLoadSuccess);
-        void deleteArticulo(Song song);
-        interface onLoadSuccess{
+        void deleteSong(Song song);
+
+    void deleteSongs(ArrayList<Song> tmp);
+
+    interface onLoadSuccess{
             void onLoadSuccess(ArrayList<Song> songs);
         }
 }

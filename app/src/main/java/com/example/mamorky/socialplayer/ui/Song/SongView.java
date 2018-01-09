@@ -3,6 +3,7 @@ package com.example.mamorky.socialplayer.ui.Song;
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import adapter.SongAdapter;
 
@@ -12,4 +13,5 @@ import adapter.SongAdapter;
 
 public interface SongView {
     void onLoadSuccess(ArrayList<Song> songs);
+    void deleteSelectedSongs(Set<Integer> positions);
 }

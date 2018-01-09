@@ -1,17 +1,15 @@
 package com.example.mamorky.socialplayer.ui.Song;
 
-import android.app.Fragment;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
@@ -21,6 +19,8 @@ import com.example.mamorky.socialplayer.data.db.pojo.Song;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
+import java.util.Set;
 
 import adapter.SongAdapter;
 
@@ -29,7 +29,6 @@ public class SongViewImp extends ListFragment implements SongView{
     private ListView listView;
     private SongAdapter songAdapter;
     private SongPresenter presenter;
-
     private Toolbar toolbar;
 
     private Comparator<Song> songComparator;
@@ -40,7 +39,7 @@ public class SongViewImp extends ListFragment implements SongView{
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
 
-        View viewRoot = inflater.inflate(R.layout.activity_song,container,false);
+        View viewRoot = inflater.inflate(R.layout.fragment_song,container,false);
 
         listView = (ListView) viewRoot.findViewById(R.id.listView);
         toolbar = (Toolbar) viewRoot.findViewById(R.id.toolbarSong);
@@ -49,6 +48,7 @@ public class SongViewImp extends ListFragment implements SongView{
         toolbar.inflateMenu(R.menu.activity_menu_song);
 
         presenter = new SongPresenterImp(this);
+
 
         songAdapter = new SongAdapter(container.getContext(),"nombre");
         listView.setAdapter(songAdapter);
@@ -60,7 +60,6 @@ public class SongViewImp extends ListFragment implements SongView{
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -70,9 +69,28 @@ public class SongViewImp extends ListFragment implements SongView{
         presenter.orderArticulos(songComparator,songAdapter);
     }
 
+
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         listView.setAdapter(songAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Song song = (Song) parent.getItemAtPosition(position);
+            }
+        });
+
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        listView.setMultiChoiceModeListener(new SongMultipleListener(presenter));
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                getListView().setItemChecked(position,!presenter.isPositionChecked(position));
+                return true;
+            }
+        });
     }
 
     @Override
@@ -114,5 +132,16 @@ public class SongViewImp extends ListFragment implements SongView{
     public void onLoadSuccess(ArrayList<Song> songs) {
         songAdapter.clear();
         songAdapter.addAll(songs);
+    }
+
+    @Override
+    public void deleteSelectedSongs(Set<Integer> positions) {
+        Iterator<Integer> iterator = positions.iterator();
+        ArrayList <Song> tmp = new ArrayList<>();
+        while (iterator.hasNext()){
+            tmp.add(songAdapter.getItem(iterator.next()));
+        }
+
+        presenter.deleteSelectionDependency(tmp);
     }
 }

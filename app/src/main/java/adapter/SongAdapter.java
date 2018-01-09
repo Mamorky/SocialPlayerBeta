@@ -3,6 +3,7 @@ package adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 
 public class SongAdapter extends ArrayAdapter<Song> {
 
+    private ArrayList<Integer> mSelection = new ArrayList<Integer>();
+
     public SongAdapter(@NonNull Context context,String ordenarPor) {
         super(context, R.layout.item_song, new ArrayList<Song>());
     }
@@ -42,6 +45,11 @@ public class SongAdapter extends ArrayAdapter<Song> {
             songHolder.imagen = (ImageView)view.findViewById(R.id.imgAlbum);
             songHolder.artist = (TextView)view.findViewById(R.id.txvArtist);
             songHolder.song = (TextView)view.findViewById(R.id.txvSong);
+
+            if (mSelection.contains(position)) {
+                view.setBackgroundColor(getContext().getResources().getColor(
+                        android.R.color.tab_indicator_text));
+            }
 
             view.setTag(songHolder);
         }

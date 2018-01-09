@@ -26,7 +26,7 @@ public class SongRepository {
     }
 
     private void inicialize(){
-        for (int i = 0;i < 20;i++){
+        for (int i = 0;i < 6;i++){
             addSong(new Song("Melody","Spinnin","Mike Williams",R.drawable.album1,i,1,1));
             addSong(new Song("Konishiwa","Spinnin","Mike Williams",R.drawable.album3,i,1,1));
             addSong(new Song("Koala","Spinnin","Oliver Heldens",R.drawable.album2,i,2,2));
@@ -44,6 +44,21 @@ public class SongRepository {
     public ArrayList<Song> getSongs(){
         Collections.sort(songs);
         return songs;
+    }
+
+    public void deleteSong(Song song){
+        for (int i = 0; i < songs.size(); i++) {
+            if(songs.get(i).get_name().equals(song.get_name())) {
+                songs.remove(i);
+                return;
+            }
+        }
+    }
+
+    public void deleteSongs(ArrayList<Song> songs){
+        for (int i = 0; i < songs.size(); i++) {
+            deleteSong(songs.get(i));
+        }
     }
 
     public ArrayList<Song> getSongs(String ordenarPor){

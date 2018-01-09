@@ -29,6 +29,12 @@ public class SongInteractorImp implements SongInteractor{
     }
 
     @Override
-    public void deleteArticulo(Song song) {
+    public void deleteSong(Song song) {
+        SongRepository.getInstance().deleteSong(song);
+    }
+
+    @Override
+    public void deleteSongs(ArrayList<Song> tmp) {
+        SongRepository.getInstance().deleteSongs(tmp);
     }
 }

@@ -1,11 +1,8 @@
 package com.example.mamorky.socialplayer.ui.Album;
 
-import android.app.Activity;
 import android.app.Fragment;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -18,7 +15,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.mamorky.socialplayer.R;
-import com.example.mamorky.socialplayer.ui.Artist.ArtistViewImp;
+
+import java.util.ArrayList;
 
 import adapter.AlbumAdapter;
 
@@ -35,7 +33,7 @@ public class AlbumViewImp extends Fragment implements AlbumView {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View viewRoot = inflater.inflate(R.layout.activity_album,container,false);
+        View viewRoot = inflater.inflate(R.layout.fragment_album,container,false);
 
         Toolbar toolbar = (Toolbar) viewRoot.findViewById(R.id.toolbarAlbum);
         toolbar.inflateMenu(R.menu.activity_menu_general);

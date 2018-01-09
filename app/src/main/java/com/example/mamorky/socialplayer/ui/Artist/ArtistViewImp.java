@@ -3,8 +3,6 @@ package com.example.mamorky.socialplayer.ui.Artist;
 import android.app.Fragment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,8 +17,6 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.mamorky.socialplayer.R;
-import com.example.mamorky.socialplayer.ui.PrincipalActivity;
-import com.example.mamorky.socialplayer.ui.Song.SongViewImp;
 
 import adapter.ArtistAdapter;
 
@@ -34,7 +30,7 @@ public class ArtistViewImp extends Fragment implements ArtistView{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View viewRoot = inflater.inflate(R.layout.activity_artist,container,false);
+        View viewRoot = inflater.inflate(R.layout.fragment_artist,container,false);
 
         Toolbar toolbar = (Toolbar) viewRoot.findViewById(R.id.toolbarArtist);
         toolbar.inflateMenu(R.menu.activity_menu_general);
