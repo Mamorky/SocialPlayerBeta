@@ -21,4 +21,8 @@
     <dimen name="marginBottomAppNameLogin">10dp</dimen>
     <dimen name="constraintPaddingItemSong">8dp</dimen>
     <dimen name="btnGeneralPadding">8dp</dimen>
+    <dimen name="width_drawerlayout">287dp</dimen>
+    <dimen name="height_header_drawable">192dp</dimen>
+    <dimen name="left_padding_header">16dp</dimen>
+    <dimen name="top_padding_header">16dp</dimen>
 </resources>

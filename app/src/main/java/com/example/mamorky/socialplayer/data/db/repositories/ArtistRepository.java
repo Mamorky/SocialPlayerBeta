@@ -25,11 +25,9 @@ public class ArtistRepository {
     }
 
     private void inicialize() {
-        for (int i = 0;i < 20;i++){
-            addArtist(new Artist("Mike Williams", R.drawable.album1));
-            addArtist(new Artist("Oliver Heldeens", R.drawable.album2));
-            addArtist(new Artist("Pep & Rash", R.drawable.album3));
-        }
+        addArtist(new Artist(01,"Mike Williams", R.drawable.album1));
+        addArtist(new Artist(02,"Oliver Heldeens", R.drawable.album2));
+        addArtist(new Artist(03,"Pep & Rash", R.drawable.album3));
     }
 
     public void addArtist(Artist artist){
@@ -39,6 +37,14 @@ public class ArtistRepository {
     public ArrayList<Artist> getArtist(){
         Collections.sort(artists);
         return artists;
+    }
+
+    public Artist getArtist(int id){
+        for (int i = 0; i < artists.size(); i++) {
+            if(artists.get(i).getIdArtist() == id)
+                return artists.get(i);
+        }
+        return null;
     }
 
     public static ArtistRepository getInstance(){

@@ -3,6 +3,9 @@ package com.example.mamorky.socialplayer.data.db.pojo;
 import android.media.Image;
 import android.support.annotation.NonNull;
 
+import com.example.mamorky.socialplayer.data.db.repositories.AlbumRepository;
+import com.example.mamorky.socialplayer.data.db.repositories.ArtistRepository;
+
 import java.util.Comparator;
 
 /**
@@ -13,22 +16,6 @@ import java.util.Comparator;
  * Creación de la clase com.example.mamorky.socialplayer.data.db.pojo con los datos */
 public class Song implements Comparable{
     private String _name;
-    private String _album;
-    private String _artist;
-
-    private int ImageAlbum;
-
-    public int getImageAlbum() {
-        return ImageAlbum;
-    }
-
-    public void setImageAlbum(int imageAlbum) {
-        ImageAlbum = imageAlbum;
-    }
-
-    public String get_artist() {
-        return _artist;
-    }
 
     public int getIdArtists() {
         return IdArtists;
@@ -37,10 +24,6 @@ public class Song implements Comparable{
     private int IdSong;
     private int IdAlbum;
 
-    public void set_artist(String _artist) {
-        this._artist = _artist;
-    }
-
     public void setIdArtists(int idArtists) {
         IdArtists = idArtists;
     }
@@ -48,11 +31,8 @@ public class Song implements Comparable{
     private int IdArtists;
     private Image cover;
 
-    public Song(String name, String album, String artists, int imageAlbum, int idSong, int idAlbum, int idArtists) {
+    public Song(String name, int idSong, int idAlbum, int idArtists) {
         _name = name;
-        _album = album;
-        _artist = artists;
-        ImageAlbum = imageAlbum;
         IdSong = idSong;
         IdAlbum = idAlbum;
         IdArtists = idArtists;
@@ -64,14 +44,6 @@ public class Song implements Comparable{
 
     public void set_name(String _name) {
         this._name = _name;
-    }
-
-    public String get_album() {
-        return _album;
-    }
-
-    public void set_album(String _album) {
-        this._album = _album;
     }
 
     public int getIdSong() {
@@ -98,12 +70,20 @@ public class Song implements Comparable{
         this.cover = cover;
     }
 
+    public Album getAlbum(){
+        return AlbumRepository.getInstance().getAlbumById(this.getIdAlbum());
+    }
+
+    public Artist getArtist(){
+        return ArtistRepository.getInstance().getArtist(this.getIdArtists());
+    }
+
     @Override
     public String toString() {
         return "Song{" +
                 "_name='" + _name + '\'' +
-                ", _album='" + _album + '\'' +
-                ", _artist=" + _artist +
+                ", _album='" + getAlbum().getAlbumName() + '\'' +
+                ", _artist=" + getArtist().getArtistName() +
                 '}';
     }
 

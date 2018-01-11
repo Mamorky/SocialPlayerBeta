@@ -9,7 +9,6 @@ import java.util.ArrayList;
 /**
  * Clase que de estructura de un Album*/
 public class Album implements Comparable{
-    private ArrayList<Song> songs;
     private String albumName;
     private int albumImage;
     private int albumId;
@@ -37,14 +36,6 @@ public class Album implements Comparable{
 
     public void setAlbumId(int albumId) {
         this.albumId = albumId;
-    }
-
-    public ArrayList<Song> getSongs() {
-        return songs;
-    }
-
-    public void setSongs(ArrayList<Song> songs) {
-        this.songs = songs;
     }
 
     public String getAlbumName() {

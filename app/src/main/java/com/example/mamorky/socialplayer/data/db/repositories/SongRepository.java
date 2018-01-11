@@ -26,11 +26,9 @@ public class SongRepository {
     }
 
     private void inicialize(){
-        for (int i = 0;i < 6;i++){
-            addSong(new Song("Melody","Spinnin","Mike Williams",R.drawable.album1,i,1,1));
-            addSong(new Song("Konishiwa","Spinnin","Mike Williams",R.drawable.album3,i,1,1));
-            addSong(new Song("Koala","Spinnin","Oliver Heldens",R.drawable.album2,i,2,2));
-        }
+        addSong(new Song("Melody",01,01,1));
+        addSong(new Song("Koala",02,02,2));
+        addSong(new Song("Konishigua",02,03,2));
     }
 
     public void addSong(Song song){

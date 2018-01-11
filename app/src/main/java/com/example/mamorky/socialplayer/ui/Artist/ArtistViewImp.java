@@ -32,10 +32,6 @@ public class ArtistViewImp extends Fragment implements ArtistView{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View viewRoot = inflater.inflate(R.layout.fragment_artist,container,false);
 
-        Toolbar toolbar = (Toolbar) viewRoot.findViewById(R.id.toolbarArtist);
-        toolbar.inflateMenu(R.menu.activity_menu_general);
-        toolbar.setTitle(R.string.activity_name_artist);
-
         recyclerView = (RecyclerView)viewRoot.findViewById(R.id.recylcerArtist);
         recyclerView.setHasFixedSize(true);
 
@@ -43,6 +39,13 @@ public class ArtistViewImp extends Fragment implements ArtistView{
             recyclerView.setLayoutManager(new GridLayoutManager(container.getContext(),3));
         else
             recyclerView.setLayoutManager(new GridLayoutManager(container.getContext(),2));
+
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.getMenu().clear();
+        toolbar.setTitle(R.string.activity_name_artist);
+        toolbar.inflateMenu(R.menu.activity_menu_general);
+
+        setHasOptionsMenu(true);
 
         return viewRoot;
     }

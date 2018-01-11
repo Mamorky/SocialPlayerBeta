@@ -9,15 +9,23 @@ import java.util.Comparator;
  */
 
 public class Artist implements Comparable{
-
+    private int idArtist;
     private String artistName;
     private int artistImage;
 
-    public Artist(String artistName, int artistImage) {
+    public Artist(int idArtist,String artistName, int artistImage) {
+        this.idArtist = idArtist;
         this.artistName = artistName;
         this.artistImage = artistImage;
     }
 
+    public int getIdArtist() {
+        return idArtist;
+    }
+
+    public void setIdArtist(int idArtist) {
+        this.idArtist = idArtist;
+    }
 
     public String getArtistName() {
         return artistName;

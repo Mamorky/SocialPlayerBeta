@@ -1,6 +1,7 @@
 package adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.SparseBooleanArray;
@@ -57,9 +58,11 @@ public class SongAdapter extends ArrayAdapter<Song> {
             songHolder = (SongHolder)view.getTag();
         }
 
-        songHolder.song.setText(getItem(position).get_name());
-        songHolder.artist.setText(getItem(position).get_artist());
-        songHolder.imagen.setImageResource(getItem(position).getImageAlbum());
+        Song song = getItem(position);
+
+        songHolder.song.setText(song.get_name());
+        songHolder.artist.setText(song.getArtist().getArtistName());
+        songHolder.imagen.setImageResource(song.getAlbum().getAlbumImage());
 
         return view;
     }

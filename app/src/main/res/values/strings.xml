@@ -22,4 +22,14 @@
     <string name="activity_name_artist">Artistas</string>
     <string name="activity_name_albums">Albums</string>
     <string name="menu_item_delete">eliminar</string>
+    <string name="activity_name_playlists">Playlists</string>
+    <string name="str_name_user">Pepe</string>
+    <string name="str_user_email">pepe@hotmail.com</string>
+    <string name="str_home">Home</string>
+    <string name="str_otras_opciones">Otras opciones</string>
+    <string name="action_helper">Ayuda</string>
+    <string name="action_configuration">Configuración</string>
+    <string name="hello_blank_fragment_one">fragment1</string>
+    <string name="hello_blank_fragment_two">fragment2</string>
+    <string name="action_about">About Me</string>
 </resources>

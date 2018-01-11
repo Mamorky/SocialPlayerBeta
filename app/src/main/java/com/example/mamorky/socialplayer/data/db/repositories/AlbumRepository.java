@@ -25,11 +25,9 @@ public class AlbumRepository {
     }
 
     public void inicialize(){
-        for (int i = 0;i < 10;i++){
-            albums.add(new Album(101,"The best Album", R.drawable.album1,"Oliver Heldeens"));
-            albums.add(new Album(102,"One day for your turn", R.drawable.album2,"Mike Williams"));
-            albums.add(new Album(103,"I Know that you Know", R.drawable.album3,"Tchami"));
-        }
+        albums.add(new Album(01,"The best Album", R.drawable.album1,"Oliver Heldeens"));
+        albums.add(new Album(02,"One day for your turn", R.drawable.album2,"Mike Williams"));
+        albums.add(new Album(03,"I Know that you Know", R.drawable.album3,"Tchami"));
     }
 
     public void addAlbum(Album album){
@@ -39,6 +37,15 @@ public class AlbumRepository {
     public ArrayList<Album> getAlbums(){
         Collections.sort(albums);
         return albums;
+    }
+
+    public Album getAlbumById(int id){
+        for (int i = 0; i < albums.size(); i++) {
+            if(albums.get(i).getAlbumId() == id)
+                return albums.get(i);
+        }
+
+        return null;
     }
 
     public static AlbumRepository getInstance(){

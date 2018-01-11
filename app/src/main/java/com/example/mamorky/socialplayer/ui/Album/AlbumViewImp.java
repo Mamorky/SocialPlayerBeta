@@ -35,10 +35,6 @@ public class AlbumViewImp extends Fragment implements AlbumView {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View viewRoot = inflater.inflate(R.layout.fragment_album,container,false);
 
-        Toolbar toolbar = (Toolbar) viewRoot.findViewById(R.id.toolbarAlbum);
-        toolbar.inflateMenu(R.menu.activity_menu_general);
-        toolbar.setTitle(R.string.activity_name_albums);
-
         recyclerAlbum = (RecyclerView)viewRoot.findViewById(R.id.recyclerAlbum);
         recyclerAlbum.setHasFixedSize(true);
 
@@ -46,6 +42,13 @@ public class AlbumViewImp extends Fragment implements AlbumView {
             recyclerAlbum.setLayoutManager(new GridLayoutManager(container.getContext(),3));
         else
             recyclerAlbum.setLayoutManager(new GridLayoutManager(container.getContext(),2));
+
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.getMenu().clear();
+        toolbar.setTitle(R.string.activity_name_albums);
+        toolbar.inflateMenu(R.menu.activity_menu_general);
+
+        setHasOptionsMenu(true);
 
         return viewRoot;
     }

@@ -3,6 +3,7 @@ package com.example.mamorky.socialplayer.ui.Song;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.mamorky.socialplayer.R;
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
+import com.example.mamorky.socialplayer.ui.PrincipalActivity;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -42,18 +44,18 @@ public class SongViewImp extends ListFragment implements SongView{
         View viewRoot = inflater.inflate(R.layout.fragment_song,container,false);
 
         listView = (ListView) viewRoot.findViewById(R.id.listView);
-        toolbar = (Toolbar) viewRoot.findViewById(R.id.toolbarSong);
 
-        toolbar.setTitle(R.string.activity_name_canciones);
-        toolbar.inflateMenu(R.menu.activity_menu_song);
+        setHasOptionsMenu(true);
 
         presenter = new SongPresenterImp(this);
-
 
         songAdapter = new SongAdapter(container.getContext(),"nombre");
         listView.setAdapter(songAdapter);
 
-        registerForContextMenu(viewRoot);
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.getMenu().clear();
+        toolbar.setTitle(R.string.activity_name_canciones);
+        toolbar.inflateMenu(R.menu.activity_menu_song);
 
         return viewRoot;
     }
@@ -68,8 +70,6 @@ public class SongViewImp extends ListFragment implements SongView{
         presenter.loadSong();
         presenter.orderArticulos(songComparator,songAdapter);
     }
-
-
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -95,8 +95,8 @@ public class SongViewImp extends ListFragment implements SongView{
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.activity_menu_song, menu);
         super.onCreateOptionsMenu(menu,inflater);
+        inflater.inflate(R.menu.activity_menu_song, menu);
     }
 
     @Override
