@@ -32,4 +32,8 @@
     <string name="hello_blank_fragment_one">fragment1</string>
     <string name="hello_blank_fragment_two">fragment2</string>
     <string name="action_about">About Me</string>
+    <string name="error_empty_name_playlist_add_edit">La playlist debe de tener un Nombre</string>
+    <string name="error_image_playlist_add_edit">Error en la imagen de la Playlist</string>
+    <string name="action_delete">Eliminar</string>
+    <string name="action_modify">Modificar</string>
 </resources>

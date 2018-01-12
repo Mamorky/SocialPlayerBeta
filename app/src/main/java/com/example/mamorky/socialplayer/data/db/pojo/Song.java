@@ -1,11 +1,14 @@
 package com.example.mamorky.socialplayer.data.db.pojo;
 
 import android.media.Image;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
 import com.example.mamorky.socialplayer.data.db.repositories.AlbumRepository;
 import com.example.mamorky.socialplayer.data.db.repositories.ArtistRepository;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**
@@ -14,7 +17,7 @@ import java.util.Comparator;
 
 /**
  * Creación de la clase com.example.mamorky.socialplayer.data.db.pojo con los datos */
-public class Song implements Comparable{
+public class Song implements Comparable,Serializable{
     private String _name;
 
     public int getIdArtists() {
@@ -91,7 +94,6 @@ public class Song implements Comparable{
     public int compareTo(@NonNull Object o) {
         return _name.compareTo(((Song)o).get_name());
     }
-
 
     public static class SongCompareById implements Comparator<Song> {
 

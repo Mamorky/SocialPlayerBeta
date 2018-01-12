@@ -2,6 +2,7 @@
 <resources>
     <dimen name="sizeArtistImage">150dp</dimen>
     <dimen name="sizeAlbumImage">150dp</dimen>
+    <dimen name="sizeGeneralImage">150dp</dimen>
     <dimen name="paddingAlbumButton">16dp</dimen>
     <dimen name="paddingAlbumLateral">8dp</dimen>
     <dimen name="paddingArtistButton">16dp</dimen>

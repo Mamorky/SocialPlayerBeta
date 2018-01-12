@@ -1,6 +1,8 @@
 package com.example.mamorky.socialplayer.ui;
 
 
+import android.app.Fragment;
+import android.app.FragmentContainer;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -75,6 +77,12 @@ public class PrincipalActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadLastFragment();
+    }
+
     private void setupBottomNavigation() {
 
         mBottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -123,11 +131,17 @@ public class PrincipalActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    private void loadPlaylist() {
+    public void loadPlaylist() {
         PlaylistViewImp fragment = new PlaylistViewImp();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.main_frame_layout,fragment);
         ft.commit();
+    }
+
+    public void loadLastFragment(){
+        Fragment fragment = getFragmentManager().findFragmentById(R.id.main_frame_layout);
+        if(fragment instanceof PlaylistViewImp)
+            loadPlaylist();
     }
 
     @Override

@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorLoginBackground">#3a51d1</color>
-    <color name="colorPrimaryDark">#4f5bae</color>
+    <color name="colorPrimaryDark">#091568</color>
     <color name="colorAccent">#FF4081</color>
     <color name="edtBackground">#ffffff</color>
     <color name="btnGoogle">#cc3838</color>

@@ -15,6 +15,7 @@
         <activity android:name=".ui.Album.AlbumViewImp"></activity>
         <activity android:name=".ui.Artist.ArtistViewImp" />
         <activity android:name=".ui.AboutActivity" />
+        <activity android:name=".ui.Playlist.AddEditPlaylist.AddEditViewImp"/>
         <activity android:name=".ui.PrincipalActivity">
         </activity>
         <activity android:name=".ui.Login.LoginViewImp">

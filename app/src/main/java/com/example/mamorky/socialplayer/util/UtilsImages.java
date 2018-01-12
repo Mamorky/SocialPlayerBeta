@@ -2,6 +2,7 @@ package com.example.mamorky.socialplayer.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
@@ -11,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.example.mamorky.socialplayer.R;
+import com.nbsp.materialfilepicker.ui.FilePickerActivity;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by mamorky on 12/11/17.
