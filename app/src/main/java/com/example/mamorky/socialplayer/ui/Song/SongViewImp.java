@@ -83,7 +83,8 @@ public class SongViewImp extends ListFragment implements SongView{
         });
 
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-        listView.setMultiChoiceModeListener(new SongMultipleListener(presenter));
+        listView.setSelected(true);
+        listView.setMultiChoiceModeListener(new SongMultipleListener(presenter,songAdapter,((AppCompatActivity) getActivity()).getSupportActionBar()));
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {

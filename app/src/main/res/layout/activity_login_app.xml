@@ -8,7 +8,8 @@
     android:orientation="vertical"
     tools:context="com.example.mamorky.socialplayer.ui.Login.LoginViewImp"
     android:padding="@dimen/llyPrincipalPadding"
-    android:background="@color/colorLoginBackground">
+    android:background="?attr/colorPrimary"
+    android:screenOrientation="portrait">
 
     <TextView
         android:id="@+id/textView2"
@@ -41,8 +42,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/edtUserMargin"
         android:background="@drawable/borderedittext"
+        android:inputType="textEmailAddress"
         android:padding="@dimen/editTextPadding"
-        android:inputType="textEmailAddress" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/txvPassword"
@@ -59,8 +62,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/edtPasswordMargin"
         android:background="@drawable/borderedittext"
+        android:inputType="textPassword"
         android:padding="@dimen/editTextPadding"
-        android:inputType="textPassword" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/black" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -94,7 +99,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/btnSignInMargin"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:text="@string/btnSignIn"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
         android:padding="@dimen/btnGeneralPadding"/>

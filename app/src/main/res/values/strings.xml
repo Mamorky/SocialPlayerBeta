@@ -26,7 +26,7 @@
     <string name="str_name_user">Pepe</string>
     <string name="str_user_email">pepe@hotmail.com</string>
     <string name="str_home">Home</string>
-    <string name="str_otras_opciones">Otras opciones</string>
+    <string name="str_options_generals">General</string>
     <string name="action_helper">Ayuda</string>
     <string name="action_configuration">Configuración</string>
     <string name="hello_blank_fragment_one">fragment1</string>
@@ -36,4 +36,12 @@
     <string name="error_image_playlist_add_edit">Error en la imagen de la Playlist</string>
     <string name="action_delete">Eliminar</string>
     <string name="action_modify">Modificar</string>
+    <string name="title_fragment_songs">Canciones</string>
+    <string name="title_fragment_albums">Albums</string>
+    <string name="title_fragment_Artist">Artistas</string>
+    <string name="title_fragment_playlists">Playlists</string>
+    <string name="action_close_session">Cerrar Sesión</string>
+    <string name="key_mode_night">modenightapp</string>
+    <string name="add_playlist_string">Añadir Playlist</string>
+    <string name="edit_playlist_string">Edit Playlist</string>
 </resources>

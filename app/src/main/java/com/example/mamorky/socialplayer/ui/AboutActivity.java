@@ -8,12 +8,13 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.mamorky.socialplayer.R;
+import com.example.mamorky.socialplayer.ui.base.BaseActivity;
 import com.vansuita.materialabout.builder.AboutBuilder;
 import com.vansuita.materialabout.views.AboutView;
 
 import mehdi.sakout.aboutpage.AboutPage;
 
-public class AboutActivity extends AppCompatActivity {
+public class AboutActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

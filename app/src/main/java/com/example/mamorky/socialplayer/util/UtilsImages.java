@@ -3,6 +3,7 @@ package com.example.mamorky.socialplayer.util;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
@@ -37,5 +38,17 @@ public class UtilsImages {
         roundedBitmapDrawable.setCornerRadius(bitmap.getHeight());
 
         return roundedBitmapDrawable;
+    }
+
+    public static int colorAlea(){
+        int r;
+        int g;
+        int b;
+
+        r = (int) Math.round(Math.random()*255);
+        g = (int) Math.round(Math.random()*255);
+        b = (int) Math.round(Math.random()*255);
+
+        return Color.rgb(r,b,g);
     }
 }

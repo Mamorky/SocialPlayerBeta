@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorLoginBackground">#3a51d1</color>
+    <color name="colorPrimaryNight">#18181a</color>
     <color name="colorPrimaryDark">#091568</color>
+    <color name="colorPrimaryDarkNight">#14000000</color>
     <color name="colorAccent">#FF4081</color>
     <color name="edtBackground">#ffffff</color>
     <color name="btnGoogle">#cc3838</color>
     <color name="btnFacebook">#3455a1</color>
+    <color name="nav_selected">#fff</color>
+    <color name="nav_unselected">#46ffffff</color>
+    <color name="dark_action_bar_color">#ffffff</color>
+    <color name="dark_status_bar_color">#000000</color>
 </resources>

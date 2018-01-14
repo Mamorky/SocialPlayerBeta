@@ -68,7 +68,7 @@ public class ArtistViewImp extends Fragment implements ArtistView{
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.btnBuscarMenu:
-                Toast.makeText(frameLayout.getContext(),"Buscar Artista",Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(),"Buscar Artista",Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
