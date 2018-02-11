@@ -2,8 +2,11 @@ package adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +19,13 @@ import com.example.mamorky.socialplayer.R;
 
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
 import com.example.mamorky.socialplayer.data.db.repositories.SongRepository;
+import com.example.mamorky.socialplayer.ui.base.BaseContext;
+import com.example.mamorky.socialplayer.util.UtilsImages;
+import com.squareup.picasso.Picasso;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -31,7 +40,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         SongHolder songHolder;
         View view = convertView;
 
@@ -44,6 +53,10 @@ public class SongAdapter extends ArrayAdapter<Song> {
             songHolder.imagen = (ImageView)view.findViewById(R.id.imgAlbum);
             songHolder.artist = (TextView)view.findViewById(R.id.txvArtist);
             songHolder.song = (TextView)view.findViewById(R.id.txvSong);
+
+            songHolder.song.setSelected(true);
+            songHolder.artist.setSelected(true);
+
             view.setTag(songHolder);
         }
         else{
@@ -53,8 +66,15 @@ public class SongAdapter extends ArrayAdapter<Song> {
         Song song = getItem(position);
 
         songHolder.song.setText(song.get_name());
-        songHolder.artist.setText(song.getArtist().getArtistName());
-        songHolder.imagen.setImageResource(song.getAlbum().getAlbumImage());
+        if(song.getArtist_name() != null)
+            songHolder.artist.setText(song.getArtist_name());
+        else
+            songHolder.artist.setText("------------");
+
+        songHolder.imagen.setImageResource(R.drawable.shape_album);
+
+
+        //UtilsImages.putImageCover(song.get_name(),songHolder.imagen);
 
         return view;
     }

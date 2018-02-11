@@ -29,6 +29,7 @@ import com.example.mamorky.socialplayer.ui.Login.LoginViewImp;
 import com.example.mamorky.socialplayer.ui.Playlist.PlaylistViewImp;
 import com.example.mamorky.socialplayer.ui.Song.SongViewImp;
 import com.example.mamorky.socialplayer.ui.base.BaseActivity;
+import com.example.mamorky.socialplayer.ui.base.BaseContext;
 import com.example.mamorky.socialplayer.util.MyPreferenceOption;
 
 import java.util.ArrayList;
@@ -46,6 +47,8 @@ public class PrincipalActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
+        BaseContext.setContext(this);
 
         setupBottomNavigation();
 

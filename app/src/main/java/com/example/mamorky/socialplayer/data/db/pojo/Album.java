@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Clase que de estructura de un Album*/
 public class Album implements Comparable{
     private String albumName;
-    private int albumImage;
+    private String albumImage;
     private int albumId;
 
     public String getAlbumArtist() {
@@ -23,7 +23,7 @@ public class Album implements Comparable{
 
     private String albumArtist;
 
-    public Album(int albumId, String albumName, int albumImage, String albumArtist) {
+    public Album(int albumId, String albumName, String albumImage, String albumArtist) {
         this.albumName = albumName;
         this.albumImage = albumImage;
         this.albumArtist = albumArtist;
@@ -46,11 +46,11 @@ public class Album implements Comparable{
         this.albumName = albumName;
     }
 
-    public int getAlbumImage() {
+    public String getAlbumImage() {
         return albumImage;
     }
 
-    public void setAlbumImage(int albumImage) {
+    public void setAlbumImage(String albumImage) {
         this.albumImage = albumImage;
     }
 

@@ -12,12 +12,11 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.v7.widget.RecyclerView
-        android:paddingBottom="@dimen/paddingAlbumButton"
-        android:paddingRight="@dimen/paddingAlbumLateral"
-        android:paddingLeft="@dimen/paddingAlbumLateral"
         android:id="@+id/recyclerAlbum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 </android.support.design.widget.CoordinatorLayout>

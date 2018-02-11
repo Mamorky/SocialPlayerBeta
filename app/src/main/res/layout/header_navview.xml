@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_header_drawable"
+    android:orientation="vertical"
+    android:background="?attr/colorPrimary"
+    android:layout_gravity="center_horizontal"
+    android:paddingLeft="@dimen/left_padding_header"
+    android:paddingTop="@dimen/top_padding_header">
+
+    <!-- Imagen de perfil -->
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/about_me"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="2dp" />
+    <!-- Nombre Usuario -->
+    <TextView
+        android:id="@+id/txv_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_profile_image_nav"
+        android:text="@string/str_name_user"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@android:color/white" />
+    <!-- Correo Usuario -->
+    <TextView
+        android:id="@+id/txv_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_user_email"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>

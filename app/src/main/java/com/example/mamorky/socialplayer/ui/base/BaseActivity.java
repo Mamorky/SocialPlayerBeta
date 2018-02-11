@@ -1,5 +1,6 @@
 package com.example.mamorky.socialplayer.ui.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -15,10 +16,13 @@ import com.example.mamorky.socialplayer.util.StyleUtils;
 
 public class BaseActivity extends AppCompatActivity {
 
+    static BaseActivity baseActivity;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         this.setTheme(StyleUtils.changeTheme(this));
         super.onCreate(savedInstanceState);
+        baseActivity = new BaseActivity();
     }
 
     public void onError(String message){
@@ -27,5 +31,9 @@ public class BaseActivity extends AppCompatActivity {
 
     public void onError(int resId){
         Snackbar.make(findViewById(android.R.id.content), getResources().getString(resId), Snackbar.LENGTH_SHORT).show();
+    }
+
+    public static Context getContext(){
+        return baseActivity.getApplicationContext();
     }
 }

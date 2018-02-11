@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference android:id="@+id/sw_preferences"
+        android:title="Mostrar precio"
+        android:key="@string/key_mostrar_lista_articulo"
+        android:defaultValue="true"/>
+</PreferenceScreen>
