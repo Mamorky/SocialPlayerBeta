@@ -17,14 +17,13 @@ import android.widget.Toast;
 
 import com.example.mamorky.socialplayer.R;
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
-import com.example.mamorky.socialplayer.ui.PrincipalActivity;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Set;
 
-import adapter.SongAdapter;
+import com.example.mamorky.socialplayer.adapter.SongAdapter;
 
 public class SongViewImp extends ListFragment implements SongView{
 

@@ -1,8 +1,6 @@
 package com.example.mamorky.socialplayer.ui.Playlist.AddEditPlaylist;
 
 import android.graphics.Bitmap;
-import android.nfc.FormatException;
-
 import com.example.mamorky.socialplayer.data.db.pojo.Playlist;
 import com.example.mamorky.socialplayer.data.db.repositories.PlaylistRepository;
 
@@ -24,10 +22,11 @@ public class AddEditInteractorImp implements AddEditInteractor {
         }
         else {
             try {
-                PlaylistRepository repository = PlaylistRepository.getInstance();
-                repository.addPlaylist(new Playlist(repository.getLastId()+1,nombre,imagen));
+                Playlist playlist = new Playlist(0,nombre,imagen);
+                PlaylistRepository.getInstance().addPlaylist(playlist);
             }
             catch (Exception e){
+                e.printStackTrace();
                 onValidatePlaylist.onImageError();
                 return;
             }
@@ -42,9 +41,7 @@ public class AddEditInteractorImp implements AddEditInteractor {
         }
         else {
             try {
-                Playlist playlistEdt = PlaylistRepository.getInstance().getPlaylist(id);
-                playlistEdt.setNamePlaylist(nombre);
-                playlistEdt.setBitMapPlaylist(imagen);
+                PlaylistRepository.getInstance().updatePlaylist(new Playlist(id,nombre,imagen));
             }
             catch (Exception e){
                 onValidatePlaylist.onImageError();

@@ -1,7 +1,6 @@
 package com.example.mamorky.socialplayer.ui.Playlist;
 
 import android.app.Fragment;
-import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,15 +9,10 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.mamorky.socialplayer.R;
@@ -26,13 +20,12 @@ import com.example.mamorky.socialplayer.data.db.pojo.Playlist;
 import com.example.mamorky.socialplayer.ui.Playlist.AddEditPlaylist.AddEditViewImp;
 import com.example.mamorky.socialplayer.ui.PrincipalActivity;
 import com.example.mamorky.socialplayer.util.AddEdit;
-import com.example.mamorky.socialplayer.util.ContextMenuRecycler;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import adapter.PlaylistAdapter;
-import adapter.SongAdapter;
+import com.example.mamorky.socialplayer.adapter.PlaylistAdapter;
+import com.example.mamorky.socialplayer.adapter.SongAdapter;
 
 import static android.content.ContentValues.TAG;
 import static android.widget.Toast.LENGTH_LONG;

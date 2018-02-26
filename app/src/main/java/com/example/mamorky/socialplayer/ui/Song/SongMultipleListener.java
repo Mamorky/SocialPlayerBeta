@@ -1,20 +1,18 @@
 package com.example.mamorky.socialplayer.ui.Song;
 
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.AbsListView;
-import android.widget.Toolbar;
 
 import com.example.mamorky.socialplayer.R;
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
 
 import java.util.ArrayList;
 
-import adapter.SongAdapter;
+import com.example.mamorky.socialplayer.adapter.SongAdapter;
 
 /**
  * Created by usuario on 18/12/17.

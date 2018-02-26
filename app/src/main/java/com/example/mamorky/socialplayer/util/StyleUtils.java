@@ -1,6 +1,7 @@
 package com.example.mamorky.socialplayer.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
@@ -20,9 +21,10 @@ public class StyleUtils {
 
         Boolean modoNoche = sharedPreferences.getBoolean(context.getString(R.string.key_mode_night),false);
 
-        if(modoNoche)
+        if(modoNoche) {
             return R.style.AppTheme_Dark;
-        else
+        }else{
             return R.style.AppTheme;
+        }
     }
 }

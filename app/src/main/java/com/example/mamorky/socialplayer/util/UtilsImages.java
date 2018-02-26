@@ -1,9 +1,14 @@
 package com.example.mamorky.socialplayer.util;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.widget.ImageView;
@@ -16,24 +21,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.mamorky.socialplayer.ui.base.BaseContext;
-import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-
-import cz.msebera.android.httpclient.HttpEntity;
-import cz.msebera.android.httpclient.HttpResponse;
-import cz.msebera.android.httpclient.client.HttpClient;
-import cz.msebera.android.httpclient.client.methods.HttpPost;
-import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import java.io.ByteArrayOutputStream;
 
 import static android.content.ContentValues.TAG;
 
@@ -41,12 +35,15 @@ import java.net.*;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.io.Reader.*;
+import java.util.Random;
 
 /**
  * Created by mamorky on 12/11/17.
  */
 
 public class UtilsImages {
+    static Random random = new Random();
+
     public static RoundedBitmapDrawable roundImages(Drawable drawable, int corner) {
         Bitmap bitmap = (((BitmapDrawable)drawable).getBitmap());
         RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(BaseContext.getContext().getResources(),bitmap);
@@ -69,11 +66,21 @@ public class UtilsImages {
         int g;
         int b;
 
-        r = (int) Math.round(Math.random()*255);
-        g = (int) Math.round(Math.random()*255);
-        b = (int) Math.round(Math.random()*255);
+        r = random.nextInt(200-100)+100;
+        g = random.nextInt(200-100)+100;
+        b = random.nextInt(200-100)+100;
 
-        return Color.rgb(r,b,g);
+        return Color.rgb(r,g,b);
+    }
+
+    public static byte[] getPictureByteOfArray(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
+        return byteArrayOutputStream.toByteArray();
+    }
+
+    public static Bitmap getBitmapFromByte(byte[] image) {
+        return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
 
     /*

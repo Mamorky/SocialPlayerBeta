@@ -1,13 +1,8 @@
-package adapter;
+package com.example.mamorky.socialplayer.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,14 +13,7 @@ import android.widget.TextView;
 import com.example.mamorky.socialplayer.R;
 
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
-import com.example.mamorky.socialplayer.data.db.repositories.SongRepository;
-import com.example.mamorky.socialplayer.ui.base.BaseContext;
-import com.example.mamorky.socialplayer.util.UtilsImages;
-import com.squareup.picasso.Picasso;
 
-import org.json.JSONException;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**

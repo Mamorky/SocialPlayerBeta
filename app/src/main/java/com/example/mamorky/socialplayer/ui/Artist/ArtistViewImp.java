@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.example.mamorky.socialplayer.R;
 
-import adapter.ArtistAdapter;
+import com.example.mamorky.socialplayer.adapter.ArtistAdapter;
 
 public class ArtistViewImp extends Fragment implements ArtistView{
 

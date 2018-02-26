@@ -22,7 +22,7 @@ public class PlayerOpenHelper extends SQLiteOpenHelper{
     private AtomicInteger mOpenCounter = new AtomicInteger();
 
     public PlayerOpenHelper() {
-        super(BaseContext.getContext(),"external.db", null, 1);
+        super(BaseContext.getContext(),PlayerContract.DATABASE_NAME, null, PlayerContract.DATABASE_VERSION);
     }
 
 
@@ -33,17 +33,26 @@ public class PlayerOpenHelper extends SQLiteOpenHelper{
         return mInstance;
     }
 
-    public synchronized SQLiteDatabase openDb(){
-        if(mOpenCounter.incrementAndGet() == 1)
-            mDatabase = SQLiteDatabase.openDatabase(PlayerContract.DATABASE_PATH, null, 0);
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.beginTransaction();
 
-        return mDatabase;
+        db.execSQL(PlayerContract.PlaylistEntry.CREATE_TABLE);
+        db.execSQL(PlayerContract.PlaylistEntry.INSERT_ENTRIES);
+
+        db.setTransactionSuccessful();
+        db.endTransaction();
     }
 
-    public synchronized void closeDb(){
-        if(mOpenCounter.decrementAndGet() == 0){
-            mDatabase.close();
-        }
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.beginTransaction();
+
+        db.execSQL(PlayerContract.PlaylistEntry.DELETE_ENTRIES);
+        onCreate(db);
+
+        db.setTransactionSuccessful();
+        db.endTransaction();
     }
 
     @Override
@@ -58,13 +67,16 @@ public class PlayerOpenHelper extends SQLiteOpenHelper{
         }
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
+    public synchronized SQLiteDatabase openDb(){
+        if(mOpenCounter.incrementAndGet() == 1)
+            mDatabase = getWritableDatabase();
 
+        return mDatabase;
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+    public synchronized void closeDb(){
+        if(mOpenCounter.decrementAndGet() == 0){
+            mDatabase.close();
+        }
     }
 }

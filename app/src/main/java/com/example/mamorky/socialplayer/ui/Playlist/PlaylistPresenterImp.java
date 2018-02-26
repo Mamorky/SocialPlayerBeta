@@ -1,13 +1,12 @@
 package com.example.mamorky.socialplayer.ui.Playlist;
 
 import com.example.mamorky.socialplayer.data.db.pojo.Playlist;
-import com.example.mamorky.socialplayer.data.db.pojo.Song;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import adapter.PlaylistAdapter;
-import adapter.SongAdapter;
+import com.example.mamorky.socialplayer.adapter.PlaylistAdapter;
+import com.example.mamorky.socialplayer.adapter.SongAdapter;
 
 /**
  * Created by mamorky on 11/01/18.

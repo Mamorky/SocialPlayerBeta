@@ -1,4 +1,4 @@
-package adapter;
+package com.example.mamorky.socialplayer.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

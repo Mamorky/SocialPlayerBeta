@@ -5,7 +5,7 @@ import com.example.mamorky.socialplayer.data.db.repositories.ArtistRepository;
 
 import java.util.ArrayList;
 
-import adapter.ArtistAdapter;
+import com.example.mamorky.socialplayer.adapter.ArtistAdapter;
 
 /**
  * Created by mamorky on 12/11/17.

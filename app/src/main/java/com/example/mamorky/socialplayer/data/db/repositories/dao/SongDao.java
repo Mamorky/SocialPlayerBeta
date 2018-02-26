@@ -49,6 +49,7 @@ public class SongDao {
                 } while (cursor.moveToNext());
             }
         }
+        cursor.close();
 
         return mSongs;
     };

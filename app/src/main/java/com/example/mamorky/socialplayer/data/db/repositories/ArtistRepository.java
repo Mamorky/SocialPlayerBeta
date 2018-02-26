@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.example.mamorky.socialplayer.data.db.pojo.Artist;
+import com.example.mamorky.socialplayer.data.db.repositories.dao.ArtistDao;
 
 /**
  * Created by mamorky on 6/11/17.
@@ -14,9 +15,11 @@ import com.example.mamorky.socialplayer.data.db.pojo.Artist;
 public class ArtistRepository {
     private ArrayList<Artist> artists;
     private static ArtistRepository artistDepository;
+    private static ArtistDao mDao;
 
     static {
         artistDepository = new ArtistRepository();
+        mDao = new ArtistDao();
     }
 
     private ArtistRepository(){
@@ -35,8 +38,7 @@ public class ArtistRepository {
     }
 
     public ArrayList<Artist> getArtist(){
-        Collections.sort(artists);
-        return artists;
+        return mDao.loadAll();
     }
 
     public Artist getArtist(int id){

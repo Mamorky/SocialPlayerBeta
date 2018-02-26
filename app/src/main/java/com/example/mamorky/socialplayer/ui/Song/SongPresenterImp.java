@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 
-import adapter.SongAdapter;
+import com.example.mamorky.socialplayer.adapter.SongAdapter;
 
 /**
  * Created by mamorky on 12/11/17.

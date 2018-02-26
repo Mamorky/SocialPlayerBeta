@@ -1,6 +1,7 @@
 package com.example.mamorky.socialplayer.ui.base;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -18,9 +19,14 @@ public class BaseActivity extends AppCompatActivity {
 
     static BaseActivity baseActivity;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        this.setTheme(StyleUtils.changeTheme(this));
+        if(!this.getTheme().equals(StyleUtils.changeTheme(this))){
+            this.setTheme(StyleUtils.changeTheme(this));
+            Intent intent = new Intent(this.getString(R.string.notify_night));
+            this.sendBroadcast(intent);
+        }
         super.onCreate(savedInstanceState);
         baseActivity = new BaseActivity();
     }

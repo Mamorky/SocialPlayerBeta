@@ -29,5 +29,10 @@
                     <category android:name="android.intent.category.LAUNCHER" />
                 </intent-filter>
             </activity>
+            <receiver android:name=".broadcast.BroadChangeNight">
+                <intent-filter>
+                    <action android:name="com.example.mamorky.socialplayer.NIGHTNOTIFY"/>
+                </intent-filter>
+            </receiver>
         </application>
 </manifest>

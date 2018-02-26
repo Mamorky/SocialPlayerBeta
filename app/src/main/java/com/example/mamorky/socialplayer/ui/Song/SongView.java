@@ -5,7 +5,7 @@ import com.example.mamorky.socialplayer.data.db.pojo.Song;
 import java.util.ArrayList;
 import java.util.Set;
 
-import adapter.SongAdapter;
+import com.example.mamorky.socialplayer.adapter.SongAdapter;
 
 /**
  * Created by mamorky on 12/11/17.

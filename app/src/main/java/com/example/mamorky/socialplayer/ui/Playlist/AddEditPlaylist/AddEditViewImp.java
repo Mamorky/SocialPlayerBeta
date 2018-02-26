@@ -1,6 +1,7 @@
 package com.example.mamorky.socialplayer.ui.Playlist.AddEditPlaylist;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -18,6 +19,7 @@ import com.example.mamorky.socialplayer.R;
 import com.example.mamorky.socialplayer.data.db.pojo.Playlist;
 import com.example.mamorky.socialplayer.ui.base.BaseActivity;
 import com.example.mamorky.socialplayer.util.AddEdit;
+import com.example.mamorky.socialplayer.util.UtilsImages;
 import com.nbsp.materialfilepicker.MaterialFilePicker;
 import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 
@@ -94,7 +96,6 @@ public class AddEditViewImp extends BaseActivity implements AddEditView{
                 @Override
                 public void onClick(View v) {
                     BitmapDrawable playlistImageDrawable = (BitmapDrawable) imgPlaylist.getDrawable();
-
                     presenter.editPlaylist(playlistEdt.getIdPlaylist(),edtNombrePlaylist.getText().toString(),playlistImageDrawable.getBitmap());
                 }
             });

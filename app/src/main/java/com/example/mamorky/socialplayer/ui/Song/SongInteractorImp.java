@@ -1,13 +1,11 @@
 package com.example.mamorky.socialplayer.ui.Song;
 
-import android.content.Context;
-
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
 import com.example.mamorky.socialplayer.data.db.repositories.SongRepository;
 
 import java.util.ArrayList;
 
-import adapter.SongAdapter;
+import com.example.mamorky.socialplayer.adapter.SongAdapter;
 
 /**
  * Created by mamorky on 12/11/17.

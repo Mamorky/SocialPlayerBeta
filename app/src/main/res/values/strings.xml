@@ -44,4 +44,5 @@
     <string name="key_mode_night">modenightapp</string>
     <string name="add_playlist_string">Añadir Playlist</string>
     <string name="edit_playlist_string">Edit Playlist</string>
+    <string name="notify_night">com.example.mamorky.socialplayer.NIGHTNOTIFY</string>
 </resources>

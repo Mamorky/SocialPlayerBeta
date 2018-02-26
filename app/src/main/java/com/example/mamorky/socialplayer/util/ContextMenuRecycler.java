@@ -56,7 +56,7 @@ public class ContextMenuRecycler extends RecyclerView {
     public static class RecyclerContextMenuInfo implements ContextMenu.ContextMenuInfo {
 
         /**
-         * The position in the adapter for which the context menu is being displayed.
+         * The position in the com.example.mamorky.socialplayer.adapter for which the context menu is being displayed.
          */
         public int position;
 

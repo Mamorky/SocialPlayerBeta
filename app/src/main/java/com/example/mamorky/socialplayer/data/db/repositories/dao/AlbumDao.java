@@ -38,6 +38,7 @@ public class AlbumDao {
                 } while (cursor.moveToNext());
             }
         }
+        cursor.close();
 
         return mAlbums;
     };
@@ -53,6 +54,8 @@ public class AlbumDao {
             String path = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ART));
             return path;
         }
+
+        cursor.close();
 
         return null;
     }

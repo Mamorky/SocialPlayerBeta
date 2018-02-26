@@ -16,9 +16,7 @@ import android.widget.Toast;
 
 import com.example.mamorky.socialplayer.R;
 
-import java.util.ArrayList;
-
-import adapter.AlbumAdapter;
+import com.example.mamorky.socialplayer.adapter.AlbumAdapter;
 
 /**
  * Created by mamorky on 5/11/17.

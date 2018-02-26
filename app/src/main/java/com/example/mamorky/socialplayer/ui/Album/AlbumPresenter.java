@@ -1,6 +1,6 @@
 package com.example.mamorky.socialplayer.ui.Album;
 
-import adapter.AlbumAdapter;
+import com.example.mamorky.socialplayer.adapter.AlbumAdapter;
 
 /**
  * Created by mamorky on 12/11/17.

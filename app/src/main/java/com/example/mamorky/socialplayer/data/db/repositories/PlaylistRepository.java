@@ -2,6 +2,7 @@ package com.example.mamorky.socialplayer.data.db.repositories;
 
 import com.example.mamorky.socialplayer.data.db.pojo.Playlist;
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
+import com.example.mamorky.socialplayer.data.db.repositories.dao.PlaylistDao;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,68 +12,32 @@ import java.util.Collections;
  */
 
 public class PlaylistRepository {
-    private ArrayList<Playlist> playlists;
     private static PlaylistRepository playlistRepository;
+    public PlaylistDao mDao;
 
     static{
         playlistRepository = new PlaylistRepository();
     }
 
     private PlaylistRepository(){
-        this.playlists = new ArrayList<Playlist>();
-        inicialize();
+        this.mDao = new PlaylistDao();
     }
 
-    private void inicialize(){
-        addPlaylist(new Playlist(01,"playlist 1"));
-        addPlaylist(new Playlist(02,"veranito"));
-    }
-
-    public void addPlaylist(Playlist playlist){
-        playlists.add(playlist);
-    }
+    public void addPlaylist(Playlist playlist){mDao.addPlaylist(playlist);}
 
     public static PlaylistRepository getInstance(){
         return playlistRepository;
     }
 
     public ArrayList<Playlist> getPlaylists(){
-        return playlists;
+        return mDao.loadAll();
     }
 
-    public Playlist getPlaylist(int id){
-        for (int i = 0; i < playlists.size(); i++) {
-            if(playlists.get(i).getIdPlaylist() == id)
-                return playlists.get(i);
-        }
-
-        return null;
+    public void updatePlaylist(Playlist playlist){
+        mDao.updatePlaylist(playlist);
     }
 
     public void deletePlaylist(Playlist playlist){
-        for (int i = 0; i < playlists.size(); i++) {
-            if(playlists.get(i).getIdPlaylist() == playlist.getIdPlaylist()) {
-                playlists.remove(playlists.get(i));
-                return;
-            }
-        }
+        mDao.deletePlaylist(playlist);
     }
-
-    public int getLastId(){
-        int maxID = 0;
-
-        for (int i = 0; i < playlists.size(); i++) {
-            if(playlists.get(i).getIdPlaylist() > maxID)
-                maxID = playlists.get(i).getIdPlaylist();
-        }
-
-        return maxID;
-    }
-
-    public ArrayList<Playlist> getPlaylists(String ordenarPor){
-        if(ordenarPor == "id"){
-            Collections.sort(playlists, new Playlist.playlistCompareById());
-            return playlists;
-        }
-        return getPlaylists();}
 }
