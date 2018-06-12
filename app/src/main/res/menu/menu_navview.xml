@@ -14,9 +14,13 @@
     <item android:id="@+id/navigation_subheader"
         android:title="@string/str_options_generals">
         <menu>
-            <item android:id="@+id/action_configuration"
-                android:title="@string/action_configuration"
-                android:icon="@drawable/ic_action_configuration">
+            <item android:id="@+id/action_day_night"
+                android:title="@string/action_day_night"
+                android:icon="@drawable/moon">
+            </item>
+            <item android:id="@+id/action_color"
+                android:title="@string/action_cambiar_color"
+                android:icon="@drawable/ic_action_paint">
             </item>
             <item android:id="@+id/action_close_session"
                 android:title="@string/action_close_session"

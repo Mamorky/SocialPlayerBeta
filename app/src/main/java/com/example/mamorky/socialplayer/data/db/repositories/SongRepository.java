@@ -1,11 +1,15 @@
 package com.example.mamorky.socialplayer.data.db.repositories;
 
+import android.os.Parcelable;
+
 import com.example.mamorky.socialplayer.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import com.example.mamorky.socialplayer.data.db.pojo.Album;
+import com.example.mamorky.socialplayer.data.db.pojo.Artist;
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
 import com.example.mamorky.socialplayer.data.db.repositories.dao.SongDao;
 
@@ -78,5 +82,13 @@ public class SongRepository {
         }
 
         return mDao.loadAll();
+    }
+
+    public ArrayList<Song> getSongs(Album albumtag) {
+        return mDao.loadSongOfAlbum(albumtag);
+    }
+
+    public ArrayList<Song> getSongs(Artist artisttag) {
+        return mDao.loadSongOfArtist(artisttag);
     }
 }

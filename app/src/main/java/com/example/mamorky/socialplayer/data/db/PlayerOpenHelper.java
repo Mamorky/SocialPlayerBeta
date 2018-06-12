@@ -1,13 +1,9 @@
 package com.example.mamorky.socialplayer.data.db;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 
-import com.example.mamorky.socialplayer.ui.GeneralPreferences;
-import com.example.mamorky.socialplayer.ui.base.BaseActivity;
 import com.example.mamorky.socialplayer.ui.base.BaseContext;
 
 import java.util.concurrent.atomic.AtomicInteger;

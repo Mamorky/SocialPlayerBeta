@@ -15,103 +15,27 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="Social Player"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textAlignment="center"
+        android:textSize="40sp"/>
 
     <ImageView
             android:id="@+id/imgLogoLogin"
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginHorizontal="60dp"
             app:srcCompat="@drawable/logo_app" />
 
-    <TextView
-        android:id="@+id/txvUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txvUser"
-        android:layout_marginTop="@dimen/txvSignInMargin"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
-        android:textColor="@android:color/white"/>
-
-    <EditText
-        android:id="@+id/edtUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/edtUserMargin"
-        android:background="@drawable/borderedittext"
-        android:inputType="textEmailAddress"
-        android:padding="@dimen/editTextPadding"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/black" />
-
-    <TextView
-        android:id="@+id/txvPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txvPassword"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
-        android:backgroundTint="@android:color/darker_gray"
-        android:textColor="@android:color/white"/>
-
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/edtPasswordMargin"
-        android:background="@drawable/borderedittext"
-        android:inputType="textPassword"
-        android:padding="@dimen/editTextPadding"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/black" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:layout_marginBottom="@dimen/llyRememberMargin">
-
-        <CheckBox
-            android:id="@+id/chkRememberme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="7"
-            android:text="@string/chkRemember"
-            android:textColor="@android:color/white"
-            android:textColorLink="@android:color/darker_gray" />
-
-        <TextView
-            android:id="@+id/txvSignUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/txvSignUp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/btnSignInMargin"
-        android:background="@color/colorPrimaryDark"
-        android:text="@string/btnSignIn"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
-        android:padding="@dimen/btnGeneralPadding"/>
-
-    <Button
+    <com.google.android.gms.common.SignInButton
         android:id="@+id/btnGoogle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/btnGoogleMargin"
-        android:background="@color/btnGoogle"
-        android:text="@string/btnGoogle"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
-        android:padding="@dimen/btnGeneralPadding"/>
+        android:layout_gravity="bottom|center">
+
+    </com.google.android.gms.common.SignInButton>
+
 
 </LinearLayout>

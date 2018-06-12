@@ -12,4 +12,5 @@
     <color name="nav_unselected">#46ffffff</color>
     <color name="dark_action_bar_color">#ffffff</color>
     <color name="dark_status_bar_color">#000000</color>
+    <color name="preference_primary_color">#434234</color>
 </resources>

@@ -1,7 +1,10 @@
 package com.example.mamorky.socialplayer.ui.Song;
 
+import android.os.Parcelable;
 import android.view.ActionMode;
 
+import com.example.mamorky.socialplayer.data.db.pojo.Album;
+import com.example.mamorky.socialplayer.data.db.pojo.Artist;
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
 
 import java.util.ArrayList;
@@ -70,6 +73,16 @@ public class SongPresenterImp implements SongPresenter,SongInteractor.onLoadSucc
     public void deleteSelectionDependency(ArrayList<Song> tmp) {
         interactor.deleteSongs(tmp);
         this.loadSong();
+    }
+
+    @Override
+    public void loadSong(Album albumtag) {
+        interactor.loadSongs(this,albumtag);
+    }
+
+    @Override
+    public void loadSong(Artist artisttag) {
+        interactor.loadSongs(this,artisttag);
     }
 
     @Override

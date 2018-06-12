@@ -22,7 +22,7 @@ public class AlbumDao {
         mAlbums = new ArrayList<>();
 
         Uri uri = MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI;
-        Cursor cursor = BaseContext.resolver().query(uri, null, null, null, null);
+        Cursor cursor = BaseContext.resolver().query(uri, null, null, null, MediaStore.Audio.Albums.ALBUM);
 
         if (cursor != null) {
             if (cursor.moveToFirst()) {

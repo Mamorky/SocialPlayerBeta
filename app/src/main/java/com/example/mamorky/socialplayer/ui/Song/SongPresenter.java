@@ -1,7 +1,10 @@
 package com.example.mamorky.socialplayer.ui.Song;
 
+import android.os.Parcelable;
 import android.view.ActionMode;
 
+import com.example.mamorky.socialplayer.data.db.pojo.Album;
+import com.example.mamorky.socialplayer.data.db.pojo.Artist;
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
 
 import java.util.ArrayList;
@@ -29,4 +32,8 @@ public interface SongPresenter {
     boolean isPositionChecked(int position);
 
     void deleteSelectionDependency(ArrayList<Song> tmp);
+
+    void loadSong(Album albumtag);
+
+    void loadSong(Artist artisttag);
 }

@@ -23,7 +23,7 @@ public class Song implements Comparable,Serializable{
     private String pathSong;
     private String _name;
     private Date dateAdded;
-    private long duration;
+    private int duration;
     private int IdArtists;
     private int IdAlbum;
     private String artist_name;
@@ -42,7 +42,7 @@ public class Song implements Comparable,Serializable{
         IdArtists = idArtists;
     }
 
-    public Song(int idSong, String pathSong, String _name, Date dateAdded, long duration, int idArtists, int idAlbum, String artist_name, String album_name,long size) {
+    public Song(int idSong, String pathSong, String _name, Date dateAdded, int duration, int idArtists, int idAlbum, String artist_name, String album_name,long size) {
         IdSong = idSong;
         this.pathSong = pathSong;
         this._name = _name;
@@ -103,11 +103,11 @@ public class Song implements Comparable,Serializable{
         this.dateAdded = dateAdded;
     }
 
-    public long getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(long duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 

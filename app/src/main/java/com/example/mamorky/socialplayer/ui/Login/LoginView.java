@@ -10,12 +10,4 @@ package com.example.mamorky.socialplayer.ui.Login;
 
 public interface LoginView {
     void navigateToHome();
-
-    void setUserEmptyError();
-
-    void setPassordEmptyError();
-
-    void setPasswordError();
-
-    void setUserIncorrect();
 }

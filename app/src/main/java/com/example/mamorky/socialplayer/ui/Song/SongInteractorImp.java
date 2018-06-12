@@ -1,5 +1,7 @@
 package com.example.mamorky.socialplayer.ui.Song;
 
+import com.example.mamorky.socialplayer.data.db.pojo.Album;
+import com.example.mamorky.socialplayer.data.db.pojo.Artist;
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
 import com.example.mamorky.socialplayer.data.db.repositories.SongRepository;
 
@@ -21,9 +23,9 @@ public class SongInteractorImp implements SongInteractor{
     }
 
     @Override
-    public void loadSongs(onLoadSuccess onLoadSuccess) {
-        ArrayList<Song> songs = SongRepository.getInstance().getSongs();
-        onLoadSuccess.onLoadSuccess(songs);
+    public void loadSongs(final onLoadSuccess onLoadSuccess) {
+                ArrayList<Song> songs = SongRepository.getInstance().getSongs();
+                onLoadSuccess.onLoadSuccess(songs);
     }
 
     @Override
@@ -34,5 +36,17 @@ public class SongInteractorImp implements SongInteractor{
     @Override
     public void deleteSongs(ArrayList<Song> tmp) {
         SongRepository.getInstance().deleteSongs(tmp);
+    }
+
+    @Override
+    public void loadSongs(final onLoadSuccess onLoadSuccess, Album albumtag) {
+        ArrayList<Song> songs = SongRepository.getInstance().getSongs(albumtag);
+        onLoadSuccess.onLoadSuccess(songs);
+    }
+
+    @Override
+    public void loadSongs(final onLoadSuccess onLoadSuccess, Artist artisttag) {
+        ArrayList<Song> songs = SongRepository.getInstance().getSongs(artisttag);
+        onLoadSuccess.onLoadSuccess(songs);
     }
 }

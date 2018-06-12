@@ -35,6 +35,7 @@ import java.net.*;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.io.Reader.*;
+import java.text.Format;
 import java.util.Random;
 
 /**
@@ -137,6 +138,7 @@ public class UtilsImages {
         return jsonObject;
     }*/
 
+    /*
     public static void putImageCover(String name, final ImageView imageView) {
         String CANAL = "https://www.googleapis.com/customsearch/v1?q="+name+"&key=AIzaSyDUnt2jiwl_ol1vCnPVk11BndsRAjfq4T8&cx=003846337453369369833:poxrllvkcwe&searchType=image";
 
@@ -179,5 +181,6 @@ public class UtilsImages {
 
         // Add the request to the RequestQueue.
         mRequestQueue.add(jsObjRequest);
-    }
+
+    }*/
 }

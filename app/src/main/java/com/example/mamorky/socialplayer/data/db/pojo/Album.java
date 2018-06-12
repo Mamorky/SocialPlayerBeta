@@ -1,5 +1,8 @@
 package com.example.mamorky.socialplayer.data.db.pojo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
 /**
@@ -8,10 +11,29 @@ import java.util.ArrayList;
 
 /**
  * Clase que de estructura de un Album*/
-public class Album implements Comparable{
+public class Album implements Comparable,Parcelable{
     private String albumName;
     private String albumImage;
     private int albumId;
+
+    protected Album(Parcel in) {
+        albumName = in.readString();
+        albumImage = in.readString();
+        albumId = in.readInt();
+        albumArtist = in.readString();
+    }
+
+    public static final Creator<Album> CREATOR = new Creator<Album>() {
+        @Override
+        public Album createFromParcel(Parcel in) {
+            return new Album(in);
+        }
+
+        @Override
+        public Album[] newArray(int size) {
+            return new Album[size];
+        }
+    };
 
     public String getAlbumArtist() {
         return albumArtist;
@@ -57,5 +79,18 @@ public class Album implements Comparable{
     @Override
     public int compareTo(Object o) {
         return albumName.compareTo(((Album)o).getAlbumName());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.albumName);
+        dest.writeString(this.albumImage);
+        dest.writeString(this.albumImage);
+        dest.writeInt(this.albumId);
     }
 }

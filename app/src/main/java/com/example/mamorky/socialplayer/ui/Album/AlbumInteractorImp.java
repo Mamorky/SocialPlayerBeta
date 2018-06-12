@@ -1,7 +1,10 @@
 package com.example.mamorky.socialplayer.ui.Album;
 
-import com.example.mamorky.socialplayer.adapter.AlbumAdapter;
+import com.example.mamorky.socialplayer.data.db.pojo.Album;
 import com.example.mamorky.socialplayer.data.db.repositories.AlbumRepository;
+import com.example.mamorky.socialplayer.util.RecyclerItemClickListener;
+
+import java.util.ArrayList;
 
 /**
  * Created by mamorky on 12/11/17.
@@ -18,8 +21,8 @@ public class AlbumInteractorImp implements AlbumInteractor{
     }
 
     @Override
-    public void createAdapter() {
-        AlbumAdapter adapter = new AlbumAdapter(repository.getAlbums());
-        presenter.showAdapter(adapter);
+    public void loadAlbums() {
+        ArrayList<Album> albums = repository.getAlbums();
+        presenter.albumLoaded(albums);
     }
 }

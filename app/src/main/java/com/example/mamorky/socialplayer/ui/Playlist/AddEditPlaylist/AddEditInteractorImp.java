@@ -22,7 +22,8 @@ public class AddEditInteractorImp implements AddEditInteractor {
         }
         else {
             try {
-                Playlist playlist = new Playlist(0,nombre,imagen);
+                //El id se añade de forma automatica en el dao
+                Playlist playlist = new Playlist(0,nombre);
                 PlaylistRepository.getInstance().addPlaylist(playlist);
             }
             catch (Exception e){
@@ -41,7 +42,7 @@ public class AddEditInteractorImp implements AddEditInteractor {
         }
         else {
             try {
-                PlaylistRepository.getInstance().updatePlaylist(new Playlist(id,nombre,imagen));
+                PlaylistRepository.getInstance().updatePlaylist(new Playlist(id,nombre));
             }
             catch (Exception e){
                 onValidatePlaylist.onImageError();

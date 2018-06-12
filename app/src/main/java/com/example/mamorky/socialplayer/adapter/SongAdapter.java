@@ -13,14 +13,19 @@ import android.widget.TextView;
 import com.example.mamorky.socialplayer.R;
 
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
+import com.example.mamorky.socialplayer.util.PlayerUtils;
+import com.example.mamorky.socialplayer.util.UtilsImages;
 
 import java.util.ArrayList;
+import java.util.logging.Handler;
 
 /**
  * Created by mamorky on 30/10/17.
  */
 
-public class SongAdapter extends ArrayAdapter<Song> {
+public class SongAdapter extends ArrayAdapter<Song>{
+
+    ArrayList<Song> songs = new ArrayList<>();
 
     public SongAdapter(@NonNull Context context,String ordenarPor) {
         super(context, R.layout.item_song, new ArrayList<Song>());
@@ -28,9 +33,11 @@ public class SongAdapter extends ArrayAdapter<Song> {
 
     @NonNull
     @Override
-    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        SongHolder songHolder;
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+        final SongHolder songHolder;
         View view = convertView;
+
 
         if(view == null){
             LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -38,12 +45,9 @@ public class SongAdapter extends ArrayAdapter<Song> {
             view = inflater.inflate(R.layout.item_song,null);
             songHolder = new SongHolder();
 
-            songHolder.imagen = (ImageView)view.findViewById(R.id.imgAlbum);
+            //songHolder.imagen = (ImageView)view.findViewById(R.id.imgAlbum);
             songHolder.artist = (TextView)view.findViewById(R.id.txvArtist);
             songHolder.song = (TextView)view.findViewById(R.id.txvSong);
-
-            songHolder.song.setSelected(true);
-            songHolder.artist.setSelected(true);
 
             view.setTag(songHolder);
         }
@@ -52,6 +56,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
         }
 
         Song song = getItem(position);
+        songs.add(song);
 
         songHolder.song.setText(song.get_name());
         if(song.getArtist_name() != null)
@@ -59,16 +64,18 @@ public class SongAdapter extends ArrayAdapter<Song> {
         else
             songHolder.artist.setText("------------");
 
-        songHolder.imagen.setImageResource(R.drawable.shape_album);
+        //songHolder.imagen.setImageResource(R.drawable.shape_album);
 
 
         //UtilsImages.putImageCover(song.get_name(),songHolder.imagen);
-
         return view;
     }
 
+    public ArrayList<Song> getSongs() {
+        return songs;
+    }
+
     class SongHolder{
-        ImageView imagen;
         TextView song;
         TextView artist;
     }

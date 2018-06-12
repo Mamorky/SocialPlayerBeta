@@ -9,7 +9,7 @@
     android:paddingHorizontal="8dp">
 
 
-    <ImageView
+    <com.github.ivbaranov.mli.MaterialLetterIcon
         android:id="@+id/imgArtist"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -19,7 +19,6 @@
         app:layout_constraintBottom_toTopOf="@+id/txvTitleAlbum"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/album1" />
@@ -32,16 +31,18 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+
         android:ellipsize="marquee"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:marqueeRepeatLimit="marquee_forever"
-        android:paddingBottom="@dimen/paddingArtistButton"
         android:scrollHorizontally="true"
         android:singleLine="true"
+
+        android:paddingBottom="@dimen/paddingArtistButton"
         android:text="TextView"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

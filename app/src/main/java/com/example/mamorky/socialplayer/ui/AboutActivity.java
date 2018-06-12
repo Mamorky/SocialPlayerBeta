@@ -1,5 +1,7 @@
 package com.example.mamorky.socialplayer.ui;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +22,10 @@ public class AboutActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(Color.argb(255,0,0,0));
+        }
 
         AboutView view = AboutBuilder.with(this)
                 .setPhoto(R.drawable.about_me)

@@ -1,7 +1,7 @@
 package com.example.mamorky.socialplayer.ui.Song;
 
-import android.content.Context;
-
+import com.example.mamorky.socialplayer.data.db.pojo.Album;
+import com.example.mamorky.socialplayer.data.db.pojo.Artist;
 import com.example.mamorky.socialplayer.data.db.pojo.Song;
 
 import java.util.ArrayList;
@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public interface SongInteractor {
     void loadSongs(onLoadSuccess onLoadSuccess);
+    void loadSongs(onLoadSuccess onLoadSuccess, Album albumtag);
+    void loadSongs(onLoadSuccess onLoadSuccess, Artist artisttag);
 
     void deleteSong(Song song);
 

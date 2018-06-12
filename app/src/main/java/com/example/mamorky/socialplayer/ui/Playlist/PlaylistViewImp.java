@@ -1,10 +1,10 @@
 package com.example.mamorky.socialplayer.ui.Playlist;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -26,6 +26,7 @@ import java.util.Comparator;
 
 import com.example.mamorky.socialplayer.adapter.PlaylistAdapter;
 import com.example.mamorky.socialplayer.adapter.SongAdapter;
+import com.example.mamorky.socialplayer.util.RecyclerItemClickListener;
 
 import static android.content.ContentValues.TAG;
 import static android.widget.Toast.LENGTH_LONG;
@@ -62,11 +63,6 @@ public class PlaylistViewImp extends Fragment implements PlaylistView{
 
         presenter = new PlaylistPresenterImp(this);
 
-        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
-        toolbar.getMenu().clear();
-        toolbar.setTitle(R.string.activity_name_playlists);
-        toolbar.inflateMenu(R.menu.activity_menu_general);
-
         fabAddEdit = viewRoot.findViewById(R.id.fabAdd);
 
         return viewRoot;
@@ -75,7 +71,7 @@ public class PlaylistViewImp extends Fragment implements PlaylistView{
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
+        RecyclerItemClickListener itemClickListener;
     }
 
     @Override
@@ -94,8 +90,14 @@ public class PlaylistViewImp extends Fragment implements PlaylistView{
         });
 
         registerForContextMenu(recyclerView);
-
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.loadPlaylist();
+        recyclerView.setAdapter(playlistAdapter);
     }
 
     @Override
@@ -134,7 +136,6 @@ public class PlaylistViewImp extends Fragment implements PlaylistView{
         switch (item.getItemId()) {
             case R.id.action_delete:
                 presenter.deletePlaylist(playlistSelect);
-                ((PrincipalActivity)getActivity()).loadLastFragment();
                 break;
             case R.id.action_modify:
                 Intent intent = new Intent(getActivity().getApplicationContext(),AddEditViewImp.class);
