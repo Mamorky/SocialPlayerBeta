@@ -10,13 +10,13 @@ import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -83,9 +83,6 @@ public class PrincipalActivity extends BaseActivity implements  GoogleApiClient.
     Player playerFragment = new Player();
 
     private String TAG_USER_PREF = "TAG_USER_PREF";
-    private static final String TAG_TAGS_FRAGMENT = "TAG_TAGS_FRAGMENT";
-
-    private ArrayList<String> tag_fragments;
     public static boolean existsSaveInstance = false;
 
     PlayerUtils playerUtils;
@@ -119,8 +116,6 @@ public class PrincipalActivity extends BaseActivity implements  GoogleApiClient.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         playerUtils.setListenerPrincipalActivity(this);
-
-        tag_fragments = new ArrayList<>();
 
         songFragment = SongViewImp.newInstance(null);
         albumFragment = AlbumViewImp.newInstance(null);
@@ -177,12 +172,14 @@ public class PrincipalActivity extends BaseActivity implements  GoogleApiClient.
 
                     if(preferences == null)
                         preferences = new UserPreferences(PrincipalActivity.this);
-
                     try {
                         changeColorPrimaryActivity();
                         changeColorFragments();
                         progressDialogPreferences.dismiss();
-                    }catch (Exception e){}
+                        FirebaseUserManager.getInstance().setUserPreferences(preferences);
+                    }catch (Exception e){
+                        progressDialogPreferences.dismiss();
+                    }
                 }
 
                 @Override
@@ -239,14 +236,14 @@ public class PrincipalActivity extends BaseActivity implements  GoogleApiClient.
                     case R.id.action_day_night:
                         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_AUTO || AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
                             if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
-                                Toast.makeText(PrincipalActivity.this,"Se ha establecido el modo dia",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PrincipalActivity.this, R.string.active_mode_day,Toast.LENGTH_SHORT).show();
                             else
-                                Toast.makeText(PrincipalActivity.this,"El modo noche a sido desactivado",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PrincipalActivity.this, R.string.modo_day_night_desactived,Toast.LENGTH_SHORT).show();
                             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                         }
                         else{
                             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                            Toast.makeText(PrincipalActivity.this,"Se ha establecido el modo noche",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PrincipalActivity.this, R.string.active_mode_night,Toast.LENGTH_SHORT).show();
                         }
                         firstTime = false;
                         recreate();
@@ -275,7 +272,6 @@ public class PrincipalActivity extends BaseActivity implements  GoogleApiClient.
                                 .setPositiveButton("ok", new ColorPickerClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                                        Toast.makeText(PrincipalActivity.this.getApplicationContext(), String.format("Has selecciondo: %d", selectedColor),Toast.LENGTH_LONG).show();
                                         preferences.setColor(selectedColor);
                                         FirebaseUserManager.getInstance().setUserPreferences(preferences);
                                         changeColorPrimaryActivity();
@@ -302,7 +298,7 @@ public class PrincipalActivity extends BaseActivity implements  GoogleApiClient.
                                     startActivity(intent);
                                 }
                                 else {
-                                    Toast.makeText(PrincipalActivity.this,"No se pudo cerrar session",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(PrincipalActivity.this, R.string.error_log_out,Toast.LENGTH_LONG).show();
                                 }
                             }
                         });
@@ -314,6 +310,16 @@ public class PrincipalActivity extends BaseActivity implements  GoogleApiClient.
             }
         });
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     @Override
     protected void onResume() {
@@ -436,25 +442,29 @@ public class PrincipalActivity extends BaseActivity implements  GoogleApiClient.
 
     @Override
     public void onBackPressed() {
-        if(getSupportFragmentManager().getBackStackEntryCount() > 0){
-            super.onBackPressed();
-        }
-        else
-        {
-            new AlertDialog.Builder(this)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("¿Quieres Salir?")
-                    .setMessage("Estas seguro de querer abandonar la aplicacion")
-                    .setPositiveButton("Si", new DialogInterface.OnClickListener()
-                    {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            PrincipalActivity.this.finish();
-                            System.exit(1);
-                        }
-                    })
-                    .setNegativeButton("No", null)
-                    .show();
+        if(drawerLayout.isDrawerOpen(Gravity.START))
+            drawerLayout.closeDrawer(Gravity.START);
+        else{
+            if(getSupportFragmentManager().getBackStackEntryCount() > 0){
+                super.onBackPressed();
+            }
+            else
+            {
+                new AlertDialog.Builder(this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle(R.string.quieres_salir)
+                        .setMessage(R.string.quires_salir_l)
+                        .setPositiveButton(R.string.si, new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                PrincipalActivity.this.finish();
+                                System.exit(1);
+                            }
+                        })
+                        .setNegativeButton(R.string.no, null)
+                        .show();
+            }
         }
     }
 

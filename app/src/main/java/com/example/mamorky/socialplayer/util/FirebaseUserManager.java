@@ -2,6 +2,7 @@ package com.example.mamorky.socialplayer.util;
 
 import android.widget.Toast;
 
+import com.example.mamorky.socialplayer.R;
 import com.example.mamorky.socialplayer.ui.base.BaseContext;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -50,7 +51,7 @@ public class FirebaseUserManager {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if(databaseError != null){
-                    Toast.makeText(BaseContext.getContext(),"No se pudieron subir las preferencias",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BaseContext.getContext(), R.string.error_up_preferences,Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -58,9 +58,9 @@ public class ArtistViewImp extends Fragment implements ArtistView{
             recyclerArtist.setHasFixedSize(true);
 
             if (getResources().getConfiguration().orientation == getResources().getConfiguration().ORIENTATION_LANDSCAPE)
-                recyclerArtist.setLayoutManager(new GridLayoutManager(this.getActivity(), 3));
+                recyclerArtist.setLayoutManager(new GridLayoutManager(this.getActivity(), ((PrincipalActivity)getActivity()).preferences.getNum_col_land()));
             else
-                recyclerArtist.setLayoutManager(new GridLayoutManager(this.getActivity(), 2));
+                recyclerArtist.setLayoutManager(new GridLayoutManager(this.getActivity(), ((PrincipalActivity)getActivity()).preferences.getNum_col_portrait()));
 
         }
         catch (Exception e){}

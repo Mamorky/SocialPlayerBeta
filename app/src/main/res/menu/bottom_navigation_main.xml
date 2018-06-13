@@ -5,19 +5,19 @@
             android:id="@+id/action_song_selector"
             android:enabled="true"
             android:icon="@drawable/song"
-            android:title="Songs"
+            android:title="@string/songs"
             app:showAsAction="ifRoom" />
         <item
             android:id="@+id/action_album_selector"
             android:enabled="true"
             android:icon="@drawable/multimedia"
-            android:title="Album"
+            android:title="@string/albums"
             app:showAsAction="ifRoom" />
         <item
             android:id="@+id/action_artist_selector"
             android:enabled="true"
             android:icon="@drawable/artist"
-            android:title="Artist"
+            android:title="@string/artistas"
             app:showAsAction="ifRoom" />
         <!--<item
             android:id="@+id/action_list_selector"

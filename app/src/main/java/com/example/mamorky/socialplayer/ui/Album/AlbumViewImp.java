@@ -85,9 +85,9 @@ public class AlbumViewImp extends Fragment implements AlbumView{
         recyclerAlbum.setHasFixedSize(true);
 
         if(getResources().getConfiguration().orientation == getResources().getConfiguration().ORIENTATION_LANDSCAPE)
-            recyclerAlbum.setLayoutManager(new GridLayoutManager(this.getActivity(),3));
+            recyclerAlbum.setLayoutManager(new GridLayoutManager(this.getActivity(), ((PrincipalActivity)getActivity()).preferences.getNum_col_land()));
         else
-            recyclerAlbum.setLayoutManager(new GridLayoutManager(this.getActivity(),2));
+            recyclerAlbum.setLayoutManager(new GridLayoutManager(this.getActivity(), ((PrincipalActivity)getActivity()).preferences.getNum_col_portrait()));
 
         recyclerAlbum.getLayoutManager().setAutoMeasureEnabled(false);
 

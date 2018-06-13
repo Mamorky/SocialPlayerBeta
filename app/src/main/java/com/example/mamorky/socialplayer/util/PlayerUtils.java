@@ -364,27 +364,26 @@ public class PlayerUtils {
                     AudioManager am =(AudioManager) BaseContext.getContext().getSystemService(Context.AUDIO_SERVICE);
                     switch (focusChange) {
                         case (AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) :
-                            PlayerUtils.getInstance().am = (AudioManager)BaseContext.getContext().getSystemService(Context.AUDIO_SERVICE);
+                            //PlayerUtils.getInstance().am = (AudioManager)BaseContext.getContext().getSystemService(Context.AUDIO_SERVICE);
                             if(playerUtils != null)
                                 mediaPlayer.setVolume(0.2f, 0.2f);
                             break;
                         case (AudioManager.AUDIOFOCUS_LOSS_TRANSIENT) :
-                            PlayerUtils.getInstance().am = (AudioManager)BaseContext.getContext().getSystemService(Context.AUDIO_SERVICE);
+                            //PlayerUtils.getInstance().am = (AudioManager)BaseContext.getContext().getSystemService(Context.AUDIO_SERVICE);
                             if(playerUtils != null)
-                                play_song();
+                                mediaPlayer.pause();
                             break;
 
                         case (AudioManager.AUDIOFOCUS_LOSS) :
-                            PlayerUtils.getInstance().am = (AudioManager)BaseContext.getContext().getSystemService(Context.AUDIO_SERVICE);
+                            //PlayerUtils.getInstance().am = (AudioManager)BaseContext.getContext().getSystemService(Context.AUDIO_SERVICE);
                             if(playerUtils != null)
-                                play_song();
+                                mediaPlayer.pause();
                             break;
 
                         case (AudioManager.AUDIOFOCUS_GAIN) :
-                            PlayerUtils.getInstance().am = (AudioManager)BaseContext.getContext().getSystemService(Context.AUDIO_SERVICE);
-                            mediaPlayer.setVolume(1f, 1f);
+                            //PlayerUtils.getInstance().am = (AudioManager)BaseContext.getContext().getSystemService(Context.AUDIO_SERVICE);
                             if(playerUtils != null)
-                                play_song();
+                                mediaPlayer.setVolume(1f, 1f);
                             break;
                         default: break;
                     }
